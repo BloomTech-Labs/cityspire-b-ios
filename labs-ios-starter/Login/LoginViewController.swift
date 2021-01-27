@@ -11,6 +11,8 @@ import OktaAuth
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var tempMapButton: UIButton!
+    
     let profileController = ProfileController.shared
     
     override func viewDidLoad() {
