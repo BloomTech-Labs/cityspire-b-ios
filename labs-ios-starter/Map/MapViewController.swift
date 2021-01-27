@@ -21,6 +21,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var resultSearchController: UISearchController? = nil
     var selectedPin: MKPlacemark? = nil
     
+    private var userTrackingButton: MKUserTrackingButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +35,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         
         mapView.delegate = self
+        addUserTrackingButton()
         addSearbarTable()
+        
     }
     
     func addSearbarTable() {
@@ -53,6 +57,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
+    }
+    
+    func addUserTrackingButton() {
+        userTrackingButton = MKUserTrackingButton(mapView: mapView)
+        userTrackingButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(userTrackingButton)
+        
+        NSLayoutConstraint.activate([
+            userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
+            mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 60)
+        ])
     }
 }
 

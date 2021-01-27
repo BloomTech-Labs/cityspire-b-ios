@@ -20,6 +20,8 @@
 	<string>$(PRODUCT_NAME) location needed to display searched locations</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>$(PRODUCT_NAME) location needed to display current location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) location needed to display current location</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
