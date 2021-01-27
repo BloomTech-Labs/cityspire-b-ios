@@ -16,6 +16,10 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>NSLocationUsageDescription</key>
+	<string>$(PRODUCT_NAME) location needed to display searched locations</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) location needed to display current location</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
