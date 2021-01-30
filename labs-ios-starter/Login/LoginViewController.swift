@@ -10,15 +10,10 @@ import UIKit
 import OktaAuth
 
 class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, FaveViewDelegate {
-
-    
-    
-    
     
     @IBOutlet weak var mapViewButton: NeumorphicView!
 
     @IBOutlet weak var loginViewButton: LoginNeumorphicView!
-    
     
     @IBOutlet weak var faveViewButton: FavoritesNeumorphicView!
     
@@ -36,6 +31,7 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
                                                object: nil,
                                                queue: .main,
                                                using: alertUserOfExpiredCredentials)
+        
         view.backgroundColor = UIColor.offWhite
         faveViewButton.delegate = self
         loginViewButton.delegate = self
@@ -53,7 +49,6 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
         let detailView = storyboard.instantiateViewController(identifier: "mapView")
         self.navigationController?.pushViewController(detailView, animated: true)
     }
-    
     
     func didTapLogin() {
         print("login tapped")

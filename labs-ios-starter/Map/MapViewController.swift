@@ -36,10 +36,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         addUserTrackingButton()
-        addSearbarTable()
+        addSearchbarTable()
     }
     
-    func addSearbarTable() {
+    func addSearchbarTable() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableVC
         
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)

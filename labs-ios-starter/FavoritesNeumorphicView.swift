@@ -18,7 +18,7 @@ class FavoritesNeumorphicView: UIView {
     let lightShadow = CALayer()
     
     weak var delegate: FaveViewDelegate?
-
+    
     func buttonTapAction() {
         delegate?.didTapFaves()
     }
@@ -60,9 +60,7 @@ class FavoritesNeumorphicView: UIView {
             darkShadow.shadowOffset = CGSize(width: 10, height: 10)
             buttonTapAction()
         }
-        
     }
-
     
     func setshadow() {
         darkShadow.frame = self.bounds
