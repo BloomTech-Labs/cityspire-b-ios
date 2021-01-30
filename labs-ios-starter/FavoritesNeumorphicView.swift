@@ -1,28 +1,26 @@
 //
-//  NeumorphicView.swift
+//  FavoritesNeumorphicView.swift
 //  labs-ios-starter
 //
-//  Created by Denis Cedeno on 1/29/21.
+//  Created by Denis Cedeno on 1/30/21.
 //  Copyright © 2021 Spencer Curtis. All rights reserved.
 //
 
 import UIKit
-protocol MyViewDelegate: class {
-    func didTapButton()
-}
 
-class NeumorphicView: UIView {
-    
-    
-    @IBOutlet var contentView: UIView!
+protocol FaveViewDelegate: class {
+    func didTapFaves()
+}
+class FavoritesNeumorphicView: UIView {
+    @IBOutlet var favesView: UIView!
     
     let darkShadow = CALayer()
     let lightShadow = CALayer()
     
-    weak var delegate: MyViewDelegate?
+    weak var delegate: FaveViewDelegate?
 
     func buttonTapAction() {
-        delegate?.didTapButton()
+        delegate?.didTapFaves()
     }
     
     override init(frame: CGRect) {
@@ -35,21 +33,21 @@ class NeumorphicView: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("NeumorphicView", owner: self, options: nil)
-        addSubview(contentView)
+        Bundle.main.loadNibNamed("FavoritesNeumorphicView", owner: self, options: nil)
+        addSubview(favesView)
         setupContentView()
         setshadow()
     }
     
     func setupContentView() {
-        contentView.backgroundColor = .offWhite
-        contentView.frame = self.bounds
+        favesView.backgroundColor = .offWhite
+        favesView.frame = self.bounds
         self.layer.cornerRadius = 15
-        self.contentView.layer.cornerRadius = 15
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.favesView.layer.cornerRadius = 15
+        favesView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
         tapGesture.minimumPressDuration = 0.1
-        contentView.addGestureRecognizer(tapGesture)
+        favesView.addGestureRecognizer(tapGesture)
         
     }
     
@@ -88,7 +86,4 @@ class NeumorphicView: UIView {
 }
 
 
-extension UIColor {
-    static let offWhite = UIColor.init(red: 225/255, green: 225/255, blue: 235/255, alpha: 1)
-}
 

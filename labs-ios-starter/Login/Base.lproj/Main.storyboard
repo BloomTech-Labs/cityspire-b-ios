@@ -42,16 +42,18 @@
                                     <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpQ-HD-3oU">
-                                <rect key="frame" x="142" y="536" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TEMP_Map_Button"/>
-                                <connections>
-                                    <segue destination="BP0-qn-eKH" kind="show" id="KTC-Og-osb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-iR-8Zg" customClass="NeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="87" y="208" width="240" height="128"/>
+                                <rect key="frame" x="57" y="200" width="300" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-QE-rKG" customClass="LoginNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="553" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-ec-J8E" customClass="FavoritesNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="687" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
@@ -65,15 +67,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="City Spire" id="fm5-ES-PwH"/>
                     <connections>
+                        <outlet property="faveViewButton" destination="qCM-ec-J8E" id="Hdz-1W-Ocg"/>
+                        <outlet property="loginViewButton" destination="Uhu-QE-rKG" id="tXt-aX-tJh"/>
                         <outlet property="mapViewButton" destination="VOu-iR-8Zg" id="PQK-nt-oMB"/>
-                        <outlet property="tempMapButton" destination="zpQ-HD-3oU" id="pNE-Yz-SHB"/>
                         <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcT-Mn-ZnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="84"/>
+            <point key="canvasLocation" x="1544.9275362318842" y="83.705357142857139"/>
         </scene>
         <!--Profiles-->
         <scene sceneID="3Na-TO-5aB">

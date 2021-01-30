@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		12B3ABC725C51706004ADB30 /* NeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABC625C51706004ADB30 /* NeumorphicView.xib */; };
 		12B3ABCA25C51758004ADB30 /* NeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABC925C51758004ADB30 /* NeumorphicView.swift */; };
+		12B3ABCD25C520CA004ADB30 /* LoginNeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */; };
+		12B3ABD025C523C9004ADB30 /* LoginNeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */; };
+		12B3ABD325C52B40004ADB30 /* FavoritesNeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */; };
+		12B3ABD625C52B6F004ADB30 /* FavoritesNeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */; };
 		12E1A54C25C111E5009A1A4E /* LocationSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E1A54B25C111E5009A1A4E /* LocationSearchTableVC.swift */; };
 		12E1A54F25C11213009A1A4E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E1A54E25C11213009A1A4E /* MapViewController.swift */; };
 		12E1A55225C11225009A1A4E /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E1A55125C11225009A1A4E /* Map.storyboard */; };
@@ -33,6 +37,10 @@
 /* Begin PBXFileReference section */
 		12B3ABC625C51706004ADB30 /* NeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeumorphicView.xib; sourceTree = "<group>"; };
 		12B3ABC925C51758004ADB30 /* NeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicView.swift; sourceTree = "<group>"; };
+		12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginNeumorphicView.xib; sourceTree = "<group>"; };
+		12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNeumorphicView.swift; sourceTree = "<group>"; };
+		12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesNeumorphicView.xib; sourceTree = "<group>"; };
+		12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNeumorphicView.swift; sourceTree = "<group>"; };
 		12E1A54B25C111E5009A1A4E /* LocationSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableVC.swift; sourceTree = "<group>"; };
 		12E1A54E25C11213009A1A4E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		12E1A55125C11225009A1A4E /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -119,6 +127,10 @@
 				466C4287249A889F007D033E /* File Organization.md */,
 				12B3ABC625C51706004ADB30 /* NeumorphicView.xib */,
 				12B3ABC925C51758004ADB30 /* NeumorphicView.swift */,
+				12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */,
+				12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */,
+				12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */,
+				12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */,
 			);
 			path = "labs-ios-starter";
 			sourceTree = "<group>";
@@ -237,8 +249,10 @@
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				12E1A55225C11225009A1A4E /* Map.storyboard in Resources */,
+				12B3ABD325C52B40004ADB30 /* FavoritesNeumorphicView.xib in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
+				12B3ABCD25C520CA004ADB30 /* LoginNeumorphicView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B3ABD625C52B6F004ADB30 /* FavoritesNeumorphicView.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
@@ -263,6 +278,7 @@
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				12E1A54C25C111E5009A1A4E /* LocationSearchTableVC.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
+				12B3ABD025C523C9004ADB30 /* LoginNeumorphicView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
