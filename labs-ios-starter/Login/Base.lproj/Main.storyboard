@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="671.01449275362324" y="83.705357142857139"/>
         </scene>
-        <!--ProfileViewer-->
+        <!--City Spire-->
         <scene sceneID="6M8-Hn-aJP">
             <objects>
                 <viewController id="4a7-cC-Xlp" customClass="LoginViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,6 +50,11 @@
                                     <segue destination="BP0-qn-eKH" kind="show" id="KTC-Og-osb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-iR-8Zg" customClass="NeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="87" y="208" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,8 +63,9 @@
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerYWithinMargins" id="ADM-g9-0Ut"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ProfileViewer" id="fm5-ES-PwH"/>
+                    <navigationItem key="navigationItem" title="City Spire" id="fm5-ES-PwH"/>
                     <connections>
+                        <outlet property="mapViewButton" destination="VOu-iR-8Zg" id="PQK-nt-oMB"/>
                         <outlet property="tempMapButton" destination="zpQ-HD-3oU" id="pNE-Yz-SHB"/>
                         <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
@@ -174,6 +180,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

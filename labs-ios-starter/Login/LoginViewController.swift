@@ -9,8 +9,9 @@
 import UIKit
 import OktaAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, MyViewDelegate {
     
+    @IBOutlet weak var mapViewButton: NeumorphicView!
     @IBOutlet weak var tempMapButton: UIButton!
     
     let profileController = ProfileController.shared
@@ -27,13 +28,20 @@ class LoginViewController: UIViewController {
                                                object: nil,
                                                queue: .main,
                                                using: alertUserOfExpiredCredentials)
-        
+        view.backgroundColor = UIColor.offWhite
+        mapViewButton.delegate = self
     }
     
     // MARK: - Actions
     
     @IBAction func signIn(_ sender: Any) {
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+    }
+    
+    func didTapButton() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Map", bundle: nil)
+        let detailView = storyboard.instantiateViewController(identifier: "mapView")
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
     // MARK: - Private Methods
