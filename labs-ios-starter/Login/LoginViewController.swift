@@ -43,10 +43,6 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
     
     // MARK: - Actions
     
-    @IBAction func signIn(_ sender: Any) {
-        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
-    }
-    
     func didTapButton() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Map", bundle: nil)
         let detailView = storyboard.instantiateViewController(identifier: "mapView")
@@ -55,7 +51,7 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
     
     func didTapLogin() {
         print("login tapped")
-//        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
     func didTapFaves() {

@@ -35,35 +35,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had">
-                                <rect key="frame" x="149" y="486" width="116" height="30"/>
-                                <state key="normal" title="Sign in with Okta"/>
-                                <connections>
-                                    <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-iR-8Zg" customClass="NeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
                                 <rect key="frame" x="57" y="200" width="300" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-QE-rKG" customClass="LoginNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="57" y="553" width="300" height="100"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-ec-J8E" customClass="FavoritesNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="628" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-ec-J8E" customClass="FavoritesNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="57" y="687" width="300" height="100"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-QE-rKG" customClass="LoginNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="476" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="CQk-Xf-had" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerXWithinMargins" id="5R1-zz-EZZ"/>
-                            <constraint firstItem="CQk-Xf-had" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerYWithinMargins" id="ADM-g9-0Ut"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="City Spire" id="fm5-ES-PwH"/>
                     <connections>
