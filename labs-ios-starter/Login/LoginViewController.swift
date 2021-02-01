@@ -36,6 +36,9 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
         faveViewButton.delegate = self
         loginViewButton.delegate = self
         mapViewButton.delegate = self
+        
+        configureGradientBackground()
+        
     }
     
     // MARK: - Actions
@@ -52,6 +55,7 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
     
     func didTapLogin() {
         print("login tapped")
+//        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
     func didTapFaves() {

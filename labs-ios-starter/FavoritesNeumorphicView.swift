@@ -40,10 +40,10 @@ class FavoritesNeumorphicView: UIView {
     }
     
     func setupContentView() {
-        favesView.backgroundColor = .offWhite
+        favesView.backgroundColor = .offpaperWhite
         favesView.frame = self.bounds
-        self.layer.cornerRadius = 15
-        self.favesView.layer.cornerRadius = 15
+        self.layer.cornerRadius = ButtonRadius.cornerRadius
+        self.favesView.layer.cornerRadius = ButtonRadius.cornerRadius
         favesView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
         tapGesture.minimumPressDuration = 0.1
@@ -53,32 +53,32 @@ class FavoritesNeumorphicView: UIView {
     
     @objc func viewTapped(gesture: UILongPressGestureRecognizer) {
         if gesture.state == .began {
-            darkShadow.shadowOffset = CGSize(width: -5, height: -5)
-            lightShadow.shadowOffset = CGSize(width: 10, height: 10)
+            darkShadow.shadowOffset = ButtonRadius.shadowOffsetTapped
+            lightShadow.shadowOffset = ButtonRadius.shadowOffsetNotTapped
         } else if gesture.state == .ended {
-            lightShadow.shadowOffset = CGSize(width: -5, height: -5)
-            darkShadow.shadowOffset = CGSize(width: 10, height: 10)
+            lightShadow.shadowOffset = ButtonRadius.shadowOffsetTapped
+            darkShadow.shadowOffset = ButtonRadius.shadowOffsetNotTapped
             buttonTapAction()
         }
     }
     
     func setshadow() {
         darkShadow.frame = self.bounds
-        darkShadow.cornerRadius = 15
-        darkShadow.backgroundColor = UIColor.offWhite.cgColor
-        darkShadow.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        darkShadow.shadowOffset = CGSize(width: 10, height: 10)
+        darkShadow.cornerRadius = ButtonRadius.cornerRadius
+        darkShadow.backgroundColor = ButtonRadius.darkBackgroundColor
+        darkShadow.shadowColor = ButtonRadius.darkShadowColor
+        darkShadow.shadowOffset = ButtonRadius.shadowOffsetNotTapped
         darkShadow.shadowOpacity = 1
-        darkShadow.shadowRadius = 15
+        darkShadow.shadowRadius = ButtonRadius.cornerRadius
         self.layer.insertSublayer(darkShadow, at: 0)
         
         lightShadow.frame = self.bounds
-        lightShadow.cornerRadius = 15
-        lightShadow.backgroundColor = UIColor.offWhite.cgColor
-        lightShadow.shadowColor = UIColor.white.withAlphaComponent(0.9).cgColor
-        lightShadow.shadowOffset = CGSize(width: -5, height: -5)
+        lightShadow.cornerRadius = ButtonRadius.cornerRadius
+        lightShadow.backgroundColor = ButtonRadius.lightBackgroundColor
+        lightShadow.shadowColor = ButtonRadius.lightShadowColor
+        lightShadow.shadowOffset = ButtonRadius.shadowOffsetTapped
         lightShadow.shadowOpacity = 1
-        lightShadow.shadowRadius = 15
+        lightShadow.shadowRadius = ButtonRadius.cornerRadius
         self.layer.insertSublayer(lightShadow, at: 0)
     }
 }
