@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="671.01449275362324" y="83.705357142857139"/>
         </scene>
-        <!--ProfileViewer-->
+        <!--City Spire-->
         <scene sceneID="6M8-Hn-aJP">
             <objects>
                 <viewController id="4a7-cC-Xlp" customClass="LoginViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,39 +35,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had">
-                                <rect key="frame" x="149" y="486" width="116" height="30"/>
-                                <state key="normal" title="Sign in with Okta"/>
-                                <connections>
-                                    <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpQ-HD-3oU">
-                                <rect key="frame" x="142" y="536" width="131" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-iR-8Zg" customClass="NeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="200" width="300" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TEMP_Map_Button"/>
-                                <connections>
-                                    <segue destination="BP0-qn-eKH" kind="show" id="KTC-Og-osb"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-ec-J8E" customClass="FavoritesNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="628" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-QE-rKG" customClass="LoginNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="57" y="476" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="CQk-Xf-had" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerXWithinMargins" id="5R1-zz-EZZ"/>
-                            <constraint firstItem="CQk-Xf-had" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerYWithinMargins" id="ADM-g9-0Ut"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ProfileViewer" id="fm5-ES-PwH"/>
+                    <navigationItem key="navigationItem" title="City Spire" id="fm5-ES-PwH"/>
                     <connections>
-                        <outlet property="tempMapButton" destination="zpQ-HD-3oU" id="pNE-Yz-SHB"/>
+                        <outlet property="faveViewButton" destination="qCM-ec-J8E" id="Hdz-1W-Ocg"/>
+                        <outlet property="loginViewButton" destination="Uhu-QE-rKG" id="tXt-aX-tJh"/>
+                        <outlet property="mapViewButton" destination="VOu-iR-8Zg" id="PQK-nt-oMB"/>
                         <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcT-Mn-ZnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="84"/>
+            <point key="canvasLocation" x="1544.9275362318842" y="83.705357142857139"/>
         </scene>
         <!--Profiles-->
         <scene sceneID="3Na-TO-5aB">
@@ -174,6 +172,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

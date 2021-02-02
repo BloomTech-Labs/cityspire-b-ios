@@ -23,15 +23,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     private var userTrackingButton: MKUserTrackingButton!
     
-    private let backButton: UIButton =  {
-        let button = UIButton(type: .system)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,11 +36,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         addUserTrackingButton()
-        addSearbarTable()
-        configureBackButton()
+        addSearchbarTable()
     }
     
-    func addSearbarTable() {
+    func addSearchbarTable() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableVC
         
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -77,18 +67,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
             mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 60)
         ])
-    }
-    func configureBackButton() {
-        view.addSubview(backButton)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 20),
-            mapView.topAnchor.constraint(equalTo: backButton.topAnchor, constant: 96)
-        ])
-    }
-    
-    @objc func handleDismissal() {
-        navigationController?.popViewController(animated: true)
     }
 }
 

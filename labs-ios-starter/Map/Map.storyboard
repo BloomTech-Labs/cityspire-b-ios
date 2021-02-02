@@ -12,7 +12,7 @@
         <!--Map View Controller-->
         <scene sceneID="8lr-0w-Mcw">
             <objects>
-                <viewController id="cQK-oh-eTQ" customClass="MapViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapView" id="cQK-oh-eTQ" customClass="MapViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Adb-8w-IBn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
