@@ -33,6 +33,8 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */; };
+		FA91935C25CA58CC00ED5076 /* FavoritesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +184,18 @@
 				46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */,
 				463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */,
 				46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */,
+				FA91935925CA58A500ED5076 /* Favorites */,
 			);
 			path = Profiles;
+			sourceTree = "<group>";
+		};
+		FA91935925CA58A500ED5076 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */,
+				FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +266,7 @@
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				12E1A55225C11225009A1A4E /* Map.storyboard in Resources */,
+				FA91935C25CA58CC00ED5076 /* FavoritesView.storyboard in Resources */,
 				12B3ABD325C52B40004ADB30 /* FavoritesNeumorphicView.xib in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
@@ -270,6 +285,7 @@
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				12B3ABE125C85050004ADB30 /* Extensions.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
+				FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
