@@ -20,6 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
     var selectedPin: MKPlacemark? = nil
+    var detailVC = DetailViewController()
     
     private var userTrackingButton: MKUserTrackingButton!
     
@@ -67,6 +68,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
             mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 60)
         ])
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

@@ -39,6 +39,22 @@
             </objects>
             <point key="canvasLocation" x="550.72463768115949" y="184.82142857142856"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="n0k-QL-d9a">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="JaV-Pc-92H" customClass="DetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8KA-zc-cuN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ufk-QE-LAK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fAt-i9-dZN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oO6-jb-QaA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="551" y="879"/>
+        </scene>
         <!--Location Search TableVC-->
         <scene sceneID="JbB-Ke-TXd">
             <objects>
