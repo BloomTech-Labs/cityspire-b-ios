@@ -35,6 +35,8 @@
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */; };
 		FA91935C25CA58CC00ED5076 /* FavoritesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */; };
+		FAC76A5025CBC28300C22F32 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76A4F25CBC28300C22F32 /* FavoritesCollectionViewCell.swift */; };
+		FAC76A5325CBC35900C22F32 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76A5225CBC35900C22F32 /* FavoritesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
 		FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesView.storyboard; sourceTree = "<group>"; };
+		FAC76A4F25CBC28300C22F32 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAC76A5225CBC35900C22F32 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */,
+				FAC76A5225CBC35900C22F32 /* FavoritesModel.swift */,
+				FAC76A4F25CBC28300C22F32 /* FavoritesCollectionViewCell.swift */,
 				FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */,
 			);
 			path = Favorites;
@@ -284,6 +290,7 @@
 				12B3ABD625C52B6F004ADB30 /* FavoritesNeumorphicView.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				12B3ABE125C85050004ADB30 /* Extensions.swift in Sources */,
+				FAC76A5325CBC35900C22F32 /* FavoritesModel.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
@@ -292,6 +299,7 @@
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				12E1A54F25C11213009A1A4E /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				FAC76A5025CBC28300C22F32 /* FavoritesCollectionViewCell.swift in Sources */,
 				12B3ABCA25C51758004ADB30 /* NeumorphicView.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,

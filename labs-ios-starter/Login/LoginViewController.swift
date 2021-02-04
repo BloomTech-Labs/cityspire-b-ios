@@ -55,7 +55,9 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
     }
     
     func didTapFaves() {
-        print("faves Tapped")
+        let storyboard: UIStoryboard = UIStoryboard(name: "FavoritesView", bundle: nil)
+        let detailView = storyboard.instantiateViewController(identifier: "favoritesView")
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
     // MARK: - Private Methods
