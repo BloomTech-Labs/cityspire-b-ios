@@ -73,6 +73,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
         guard let locationTitle  = view.annotation?.subtitle else { return }
         detailVC.title = locationTitle
+        detailVC.walkability = 99
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

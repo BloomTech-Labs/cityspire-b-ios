@@ -46,10 +46,40 @@
                     <view key="view" contentMode="scaleToFill" id="8KA-zc-cuN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walkabiliy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDF-VS-RSJ">
+                                <rect key="frame" x="20" y="108" width="162" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0b-jr-4kP">
+                                <rect key="frame" x="20" y="153" width="41.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ufk-QE-LAK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s0b-jr-4kP" firstAttribute="top" secondItem="kDF-VS-RSJ" secondAttribute="bottom" constant="4" id="btA-7R-1eY"/>
+                            <constraint firstItem="kDF-VS-RSJ" firstAttribute="top" secondItem="Ufk-QE-LAK" secondAttribute="top" constant="20" id="fmQ-So-plq"/>
+                            <constraint firstItem="s0b-jr-4kP" firstAttribute="leading" secondItem="Ufk-QE-LAK" secondAttribute="leading" constant="20" id="gT9-2C-WDZ"/>
+                            <constraint firstItem="kDF-VS-RSJ" firstAttribute="leading" secondItem="Ufk-QE-LAK" secondAttribute="leading" constant="20" id="p4x-Rk-3CD"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fAt-i9-dZN"/>
+                    <navigationItem key="navigationItem" id="fAt-i9-dZN">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="sfx-ok-bnL">
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="JaV-Pc-92H" id="Ava-0P-24E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="favoriteButton" destination="sfx-ok-bnL" id="VnU-Px-jwg"/>
+                        <outlet property="walkabilityScore" destination="s0b-jr-4kP" id="QA0-Xe-ndm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oO6-jb-QaA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,6 +167,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
