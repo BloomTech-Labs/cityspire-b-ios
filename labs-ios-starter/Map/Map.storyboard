@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oO6-jb-QaA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="879"/>
+            <point key="canvasLocation" x="1460.8695652173915" y="878.57142857142856"/>
         </scene>
         <!--Location Search TableVC-->
         <scene sceneID="JbB-Ke-TXd">
@@ -116,6 +116,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpQ-o7-OVc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-359.4202898550725" y="184.82142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wHc-VZ-efu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pz4-zm-zBK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TNC-S1-amo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JaV-Pc-92H" kind="relationship" relationship="rootViewController" id="HQx-rO-LOf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1b-dV-5vy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="550.72463768115949" y="878.57142857142856"/>
         </scene>
     </scenes>
     <resources>
