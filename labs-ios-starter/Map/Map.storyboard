@@ -83,6 +83,52 @@
             </objects>
             <point key="canvasLocation" x="1311.5942028985507" y="184.82142857142856"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="DG2-Id-Tgw">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="WOm-0e-P9W" customClass="DetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SGL-2f-Afy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walkability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-h1-BiQ">
+                                <rect key="frame" x="20" y="160" width="158" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-QW-8lz">
+                                <rect key="frame" x="20" y="221" width="36" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sji-W3-6Cf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U1D-QW-8lz" firstAttribute="top" secondItem="ffa-h1-BiQ" secondAttribute="bottom" constant="20" id="8O7-mx-NfT"/>
+                            <constraint firstItem="ffa-h1-BiQ" firstAttribute="top" secondItem="sji-W3-6Cf" secondAttribute="top" constant="20" id="HEp-YO-fiS"/>
+                            <constraint firstItem="ffa-h1-BiQ" firstAttribute="leading" secondItem="sji-W3-6Cf" secondAttribute="leading" constant="20" id="Pnc-VF-b5s"/>
+                            <constraint firstItem="U1D-QW-8lz" firstAttribute="leading" secondItem="sji-W3-6Cf" secondAttribute="leading" constant="20" id="rJ3-TP-bdo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yLX-Tv-G53">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="mHM-15-5oo">
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="WOm-0e-P9W" id="NqU-oE-RnH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="favoriteButton" destination="mHM-15-5oo" id="27N-jR-Z4L"/>
+                        <outlet property="walkabilityScore" destination="U1D-QW-8lz" id="uNa-K4-Luf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkx-Pu-Gro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="903"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="P0R-yF-rt8">
             <objects>
@@ -101,8 +147,27 @@
             </objects>
             <point key="canvasLocation" x="-359.4202898550725" y="184.82142857142856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KeF-wS-Yf2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LLE-qN-ko0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VN0-AS-hGC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WOm-0e-P9W" kind="relationship" relationship="rootViewController" id="DmI-SE-Kvc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hxg-db-YBu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="551" y="904"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
