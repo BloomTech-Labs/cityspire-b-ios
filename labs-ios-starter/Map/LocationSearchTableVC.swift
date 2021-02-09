@@ -25,7 +25,6 @@ class LocationSearchTableVC: UITableViewController {
         return matchingItems.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
         let selectedItem = matchingItems[indexPath.row].placemark

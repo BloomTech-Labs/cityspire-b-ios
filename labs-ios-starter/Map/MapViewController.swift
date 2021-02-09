@@ -68,6 +68,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 60)
         ])
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
+        guard let locationTitle  = view.annotation?.subtitle else { return }
+        detailVC.title = locationTitle
+        detailVC.walkability = 99
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {

@@ -33,6 +33,7 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		E368726D25D236A500FB6F8B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368726C25D236A500FB6F8B /* DetailViewController.swift */; };
 		FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */; };
 		FA91935C25CA58CC00ED5076 /* FavoritesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */; };
 		FAC76A5025CBC28300C22F32 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76A4F25CBC28300C22F32 /* FavoritesCollectionViewCell.swift */; };
@@ -68,6 +69,7 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		E368726C25D236A500FB6F8B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA91935625CA589F00ED5076 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		FA91935B25CA58CC00ED5076 /* FavoritesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesView.storyboard; sourceTree = "<group>"; };
 		FAC76A4F25CBC28300C22F32 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				12E1A54B25C111E5009A1A4E /* LocationSearchTableVC.swift */,
 				12E1A54E25C11213009A1A4E /* MapViewController.swift */,
 				12E1A55125C11225009A1A4E /* Map.storyboard */,
+				E368726C25D236A500FB6F8B /* DetailViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				FAC76A5325CBC35900C22F32 /* FavoritesModel.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				FA91935725CA589F00ED5076 /* FavoritesCollectionViewController.swift in Sources */,
+				E368726D25D236A500FB6F8B /* DetailViewController.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
