@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
     
         NSLayoutConstraint.activate([
             button0.widthAnchor.constraint(equalToConstant: 300),
-            button0.heightAnchor.constraint(equalToConstant: 100),
+            button0.heightAnchor.constraint(equalToConstant: 200),
             button0.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             button0.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             

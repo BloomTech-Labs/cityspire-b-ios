@@ -8,23 +8,12 @@
 
 import UIKit
 
-struct ButtonRadius {
-    
-    static let cornerRadius: CGFloat = 8
-    static let shadowOffsetNotTapped = CGSize(width: 6, height: 6)
-    static let shadowOffsetTapped = CGSize(width: -4, height: -4)
-    static let lightBackgroundColor = UIColor.offpaperWhite.cgColor
-    static let lightShadowColor = UIColor.offpaperWhite.withAlphaComponent(0.9).cgColor
-    static let darkBackgroundColor = UIColor.offBlack.cgColor
-    static let darkShadowColor = UIColor.offBlack.withAlphaComponent(0.2).cgColor
-}
-
 extension UIColor {
-    static let offWhite = UIColor.init(red: 225/255, green: 225/255, blue: 235/255, alpha: 1)
-    static let offpaperWhite = UIColor.init(red: 255/255, green: 250/255, blue: 240/255, alpha: 1)
-    static let offTan = UIColor.init(red: 234/255, green: 221/255, blue: 193/255, alpha: 1)
-    static let offGreen = UIColor.init(red: 0/255, green: 145/255, blue: 117/255, alpha: 1)
-    static let offBlack = UIColor.init(red: 62/255, green: 58/255, blue: 50/255, alpha: 1)
+    static let offWhite = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
+    static let offBlack = #colorLiteral(red: 0.2431372549, green: 0.2274509804, blue: 0.2509803922, alpha: 1)
+    static let offGreen = #colorLiteral(red: 0, green: 0.568627451, blue: 0.4588235294, alpha: 1)
+    static let offLightGreen = #colorLiteral(red: 0.3882352941, green: 0.7137254902, blue: 0.6666666667, alpha: 1)
+    static let offPurple = #colorLiteral(red: 0.2862745098, green: 0.09411764706, blue: 0.3333333333, alpha: 1)
 }
 
 extension UIViewController {
@@ -32,7 +21,7 @@ extension UIViewController {
     func configureGradientBackground() {
         let gradient: CAGradientLayer = CAGradientLayer()
 
-        gradient.colors = [UIColor.offpaperWhite.cgColor, UIColor.offTan.cgColor]
+        gradient.colors = [UIColor.offWhite.cgColor, UIColor.offLightGreen.cgColor]
         gradient.locations = [0.0 , 1.0]
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
 
