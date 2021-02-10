@@ -33,57 +33,63 @@ class LoginViewController: UIViewController {
     
     func configureUI() {
         
-        let button0 = EMTNeumorphicButton(type: .custom)
-        view.addSubview(button0)
-        button0.setImage(UIImage(named: "heart-outline"), for: .normal)
-        button0.setImage(UIImage(named: "heart-solid"), for: .selected)
-        button0.contentVerticalAlignment = .fill
-        button0.contentHorizontalAlignment = .fill
-        button0.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
-        button0.translatesAutoresizingMaskIntoConstraints = false
-        button0.addTarget(self, action: #selector(didTapMap), for: .touchUpInside)
+        let mapButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(mapButton)
+        mapButton.contentVerticalAlignment = .fill
+        mapButton.contentHorizontalAlignment = .fill
+        mapButton.titleEdgeInsets = UIEdgeInsets(top: 50, left: 130, bottom: 50, right: 50)
+        mapButton.setTitle("Map", for: .normal)
+        mapButton.setTitleColor(.offBlack, for: .normal)
+        mapButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        mapButton.translatesAutoresizingMaskIntoConstraints = false
+        mapButton.addTarget(self, action: #selector(didTapMap), for: .touchUpInside)
         // set parameters
-        button0.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
-        button0.neumorphicLayer?.cornerRadius = 22.5
+        mapButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        mapButton.neumorphicLayer?.cornerRadius = 22.5
+        mapButton.isSelected = false
+        
 
-        let button1 = EMTNeumorphicButton(type: .custom)
-        view.addSubview(button1)
-        button1.setImage(UIImage(named: "heart-outline"), for: .normal)
-        button1.setImage(UIImage(named: "heart-solid"), for: .selected)
-        button1.contentVerticalAlignment = .fill
-        button1.contentHorizontalAlignment = .fill
-        button1.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        button1.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-        button1.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
-        button1.neumorphicLayer?.cornerRadius = 22.5
+        let loginButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(loginButton)
+        loginButton.titleEdgeInsets = UIEdgeInsets(top: 20, left: 125, bottom: 20, right: 20)
+        loginButton.setTitle("Sign in", for: .normal)
+        loginButton.setTitleColor(.offBlack, for: .normal)
+        loginButton.contentVerticalAlignment = .fill
+        loginButton.contentHorizontalAlignment = .fill
+        loginButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        loginButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        loginButton.neumorphicLayer?.cornerRadius = 22.5
 
-        let button5 = EMTNeumorphicButton(type: .custom)
-        view.addSubview(button5)
-        button5.setImage(UIImage(named: "heart-outline"), for: .normal)
-        button5.setImage(UIImage(named: "heart-solid"), for: .selected)
-        button5.contentVerticalAlignment = .fill
-        button5.contentHorizontalAlignment = .fill
-        button5.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
-        button5.translatesAutoresizingMaskIntoConstraints = false
-        button5.addTarget(self, action: #selector(didTapFaves), for: .touchUpInside)
-        button5.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
-        button5.neumorphicLayer?.cornerRadius = 22.5
+        let favoritesButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(favoritesButton)
+        favoritesButton.titleEdgeInsets = UIEdgeInsets(top: 20, left: 115, bottom: 20, right: 50)
+        favoritesButton.setTitle("Favorites", for: .normal)
+        favoritesButton.setTitleColor(.offBlack, for: .normal)
+        favoritesButton.contentVerticalAlignment = .fill
+        favoritesButton.contentHorizontalAlignment = .fill
+        favoritesButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        favoritesButton.translatesAutoresizingMaskIntoConstraints = false
+        favoritesButton.addTarget(self, action: #selector(didTapFaves), for: .touchUpInside)
+        favoritesButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        favoritesButton.neumorphicLayer?.cornerRadius = 22.5
     
         NSLayoutConstraint.activate([
-            button0.widthAnchor.constraint(equalToConstant: 300),
-            button0.heightAnchor.constraint(equalToConstant: 200),
-            button0.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            button0.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mapButton.widthAnchor.constraint(equalToConstant: 300),
+            mapButton.heightAnchor.constraint(equalToConstant: 200),
+            mapButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            mapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            button1.widthAnchor.constraint(equalToConstant: 300),
-            button1.heightAnchor.constraint(equalToConstant: 100),
-            button1.topAnchor.constraint(equalTo: button0.bottomAnchor, constant: 64),
-            button1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button5.widthAnchor.constraint(equalToConstant: 300),
-            button5.heightAnchor.constraint(equalToConstant: 100),
-            button5.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 64),
-            button5.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginButton.widthAnchor.constraint(equalToConstant: 300),
+            loginButton.heightAnchor.constraint(equalToConstant: 100),
+            loginButton.topAnchor.constraint(equalTo: mapButton.bottomAnchor, constant: 64),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            favoritesButton.widthAnchor.constraint(equalToConstant: 300),
+            favoritesButton.heightAnchor.constraint(equalToConstant: 100),
+            favoritesButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 64),
+            favoritesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
         
