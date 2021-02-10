@@ -8,14 +8,9 @@
 
 import UIKit
 import OktaAuth
+import EMTNeumorphicView
 
-class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, FaveViewDelegate {
-    
-    @IBOutlet weak var mapViewButton: NeumorphicView!
-
-    @IBOutlet weak var loginViewButton: LoginNeumorphicView!
-    
-    @IBOutlet weak var faveViewButton: FavoritesNeumorphicView!
+class LoginViewController: UIViewController {
     
     let profileController = ProfileController.shared
     
@@ -33,28 +28,81 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
                                                using: alertUserOfExpiredCredentials)
         
         view.backgroundColor = UIColor.offWhite
-        faveViewButton.delegate = self
-        loginViewButton.delegate = self
-        mapViewButton.delegate = self
+        configureUI()
+    }
+    
+    func configureUI() {
         
-        configureGradientBackground()
+        let button0 = EMTNeumorphicButton(type: .custom)
+        view.addSubview(button0)
+        button0.setImage(UIImage(named: "heart-outline"), for: .normal)
+        button0.setImage(UIImage(named: "heart-solid"), for: .selected)
+        button0.contentVerticalAlignment = .fill
+        button0.contentHorizontalAlignment = .fill
+        button0.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        button0.translatesAutoresizingMaskIntoConstraints = false
+        button0.addTarget(self, action: #selector(didTapMap), for: .touchUpInside)
+        // set parameters
+        button0.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        button0.neumorphicLayer?.cornerRadius = 22.5
+
+        let button1 = EMTNeumorphicButton(type: .custom)
+        view.addSubview(button1)
+        button1.setImage(UIImage(named: "heart-outline"), for: .normal)
+        button1.setImage(UIImage(named: "heart-solid"), for: .selected)
+        button1.contentVerticalAlignment = .fill
+        button1.contentHorizontalAlignment = .fill
+        button1.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        button1.translatesAutoresizingMaskIntoConstraints = false
+        button1.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        button1.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        button1.neumorphicLayer?.cornerRadius = 22.5
+
+        let button5 = EMTNeumorphicButton(type: .custom)
+        view.addSubview(button5)
+        button5.setImage(UIImage(named: "heart-outline"), for: .normal)
+        button5.setImage(UIImage(named: "heart-solid"), for: .selected)
+        button5.contentVerticalAlignment = .fill
+        button5.contentHorizontalAlignment = .fill
+        button5.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        button5.translatesAutoresizingMaskIntoConstraints = false
+        button5.addTarget(self, action: #selector(didTapFaves), for: .touchUpInside)
+        button5.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        button5.neumorphicLayer?.cornerRadius = 22.5
+    
+        NSLayoutConstraint.activate([
+            button0.widthAnchor.constraint(equalToConstant: 300),
+            button0.heightAnchor.constraint(equalToConstant: 100),
+            button0.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            button0.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            button1.widthAnchor.constraint(equalToConstant: 300),
+            button1.heightAnchor.constraint(equalToConstant: 100),
+            button1.topAnchor.constraint(equalTo: button0.bottomAnchor, constant: 64),
+            button1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button5.widthAnchor.constraint(equalToConstant: 300),
+            button5.heightAnchor.constraint(equalToConstant: 100),
+            button5.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 64),
+            button5.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
         
     }
     
     // MARK: - Actions
     
-    func didTapButton() {
+    @objc func didTapMap() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Map", bundle: nil)
         let detailView = storyboard.instantiateViewController(identifier: "mapView")
         self.navigationController?.pushViewController(detailView, animated: true)
     }
     
-    func didTapLogin() {
+    @objc func didTapLogin() {
         print("login tapped")
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
-    func didTapFaves() {
+    @objc func didTapFaves() {
         let storyboard: UIStoryboard = UIStoryboard(name: "FavoritesView", bundle: nil)
         let detailView = storyboard.instantiateViewController(identifier: "favoritesView")
         self.navigationController?.pushViewController(detailView, animated: true)

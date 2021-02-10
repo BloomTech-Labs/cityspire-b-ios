@@ -34,31 +34,11 @@
                     <view key="view" contentMode="scaleToFill" id="INU-fS-Snd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-iR-8Zg" customClass="NeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="57" y="200" width="300" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-ec-J8E" customClass="FavoritesNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="57" y="628" width="300" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-QE-rKG" customClass="LoginNeumorphicView" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="57" y="476" width="300" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="City Spire" id="fm5-ES-PwH"/>
                     <connections>
-                        <outlet property="faveViewButton" destination="qCM-ec-J8E" id="Hdz-1W-Ocg"/>
-                        <outlet property="loginViewButton" destination="Uhu-QE-rKG" id="tXt-aX-tJh"/>
-                        <outlet property="mapViewButton" destination="VOu-iR-8Zg" id="PQK-nt-oMB"/>
                         <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
                     </connections>
@@ -172,9 +152,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
