@@ -8,14 +8,9 @@
 
 import UIKit
 import OktaAuth
+import EMTNeumorphicView
 
-class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, FaveViewDelegate {
-    
-    @IBOutlet weak var mapViewButton: NeumorphicView!
-
-    @IBOutlet weak var loginViewButton: LoginNeumorphicView!
-    
-    @IBOutlet weak var faveViewButton: FavoritesNeumorphicView!
+class LoginViewController: UIViewController {
     
     let profileController = ProfileController.shared
     
@@ -33,28 +28,87 @@ class LoginViewController: UIViewController, MyViewDelegate, LoginViewDelegate, 
                                                using: alertUserOfExpiredCredentials)
         
         view.backgroundColor = UIColor.offWhite
-        faveViewButton.delegate = self
-        loginViewButton.delegate = self
-        mapViewButton.delegate = self
+        configureUI()
+    }
+    
+    func configureUI() {
         
-        configureGradientBackground()
+        let mapButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(mapButton)
+        mapButton.contentVerticalAlignment = .fill
+        mapButton.contentHorizontalAlignment = .fill
+        mapButton.titleEdgeInsets = UIEdgeInsets(top: 50, left: 130, bottom: 50, right: 50)
+        mapButton.setTitle("Map", for: .normal)
+        mapButton.setTitleColor(.offBlack, for: .normal)
+        mapButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        mapButton.translatesAutoresizingMaskIntoConstraints = false
+        mapButton.addTarget(self, action: #selector(didTapMap), for: .touchUpInside)
+        // set parameters
+        mapButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        mapButton.neumorphicLayer?.cornerRadius = 22.5
+        mapButton.isSelected = false
+        
+
+        let loginButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(loginButton)
+        loginButton.titleEdgeInsets = UIEdgeInsets(top: 20, left: 125, bottom: 20, right: 20)
+        loginButton.setTitle("Sign in", for: .normal)
+        loginButton.setTitleColor(.offBlack, for: .normal)
+        loginButton.contentVerticalAlignment = .fill
+        loginButton.contentHorizontalAlignment = .fill
+        loginButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        loginButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        loginButton.neumorphicLayer?.cornerRadius = 22.5
+
+        let favoritesButton = EMTNeumorphicButton(type: .custom)
+        view.addSubview(favoritesButton)
+        favoritesButton.titleEdgeInsets = UIEdgeInsets(top: 20, left: 115, bottom: 20, right: 50)
+        favoritesButton.setTitle("Favorites", for: .normal)
+        favoritesButton.setTitleColor(.offBlack, for: .normal)
+        favoritesButton.contentVerticalAlignment = .fill
+        favoritesButton.contentHorizontalAlignment = .fill
+        favoritesButton.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        favoritesButton.translatesAutoresizingMaskIntoConstraints = false
+        favoritesButton.addTarget(self, action: #selector(didTapFaves), for: .touchUpInside)
+        favoritesButton.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        favoritesButton.neumorphicLayer?.cornerRadius = 22.5
+    
+        NSLayoutConstraint.activate([
+            mapButton.widthAnchor.constraint(equalToConstant: 300),
+            mapButton.heightAnchor.constraint(equalToConstant: 200),
+            mapButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            mapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            loginButton.widthAnchor.constraint(equalToConstant: 300),
+            loginButton.heightAnchor.constraint(equalToConstant: 100),
+            loginButton.topAnchor.constraint(equalTo: mapButton.bottomAnchor, constant: 64),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            favoritesButton.widthAnchor.constraint(equalToConstant: 300),
+            favoritesButton.heightAnchor.constraint(equalToConstant: 100),
+            favoritesButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 64),
+            favoritesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
         
     }
     
     // MARK: - Actions
     
-    func didTapButton() {
+    @objc func didTapMap() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Map", bundle: nil)
         let detailView = storyboard.instantiateViewController(identifier: "mapView")
         self.navigationController?.pushViewController(detailView, animated: true)
     }
     
-    func didTapLogin() {
+    @objc func didTapLogin() {
         print("login tapped")
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
-    func didTapFaves() {
+    @objc func didTapFaves() {
         let storyboard: UIStoryboard = UIStoryboard(name: "FavoritesView", bundle: nil)
         let detailView = storyboard.instantiateViewController(identifier: "favoritesView")
         self.navigationController?.pushViewController(detailView, animated: true)

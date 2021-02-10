@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12B3ABC725C51706004ADB30 /* NeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABC625C51706004ADB30 /* NeumorphicView.xib */; };
-		12B3ABCA25C51758004ADB30 /* NeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABC925C51758004ADB30 /* NeumorphicView.swift */; };
-		12B3ABCD25C520CA004ADB30 /* LoginNeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */; };
-		12B3ABD025C523C9004ADB30 /* LoginNeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */; };
-		12B3ABD325C52B40004ADB30 /* FavoritesNeumorphicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */; };
-		12B3ABD625C52B6F004ADB30 /* FavoritesNeumorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */; };
+		12A72F7B25D37CE400E49C3A /* EMTNeumorphicView in Frameworks */ = {isa = PBXBuildFile; productRef = 12A72F7A25D37CE400E49C3A /* EMTNeumorphicView */; };
 		12B3ABE125C85050004ADB30 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3ABE025C85050004ADB30 /* Extensions.swift */; };
 		12E1A54C25C111E5009A1A4E /* LocationSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E1A54B25C111E5009A1A4E /* LocationSearchTableVC.swift */; };
 		12E1A54F25C11213009A1A4E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E1A54E25C11213009A1A4E /* MapViewController.swift */; };
@@ -41,12 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12B3ABC625C51706004ADB30 /* NeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeumorphicView.xib; sourceTree = "<group>"; };
-		12B3ABC925C51758004ADB30 /* NeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicView.swift; sourceTree = "<group>"; };
-		12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginNeumorphicView.xib; sourceTree = "<group>"; };
-		12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNeumorphicView.swift; sourceTree = "<group>"; };
-		12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesNeumorphicView.xib; sourceTree = "<group>"; };
-		12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNeumorphicView.swift; sourceTree = "<group>"; };
 		12B3ABE025C85050004ADB30 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		12E1A54B25C111E5009A1A4E /* LocationSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableVC.swift; sourceTree = "<group>"; };
 		12E1A54E25C11213009A1A4E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A72F7B25D37CE400E49C3A /* EMTNeumorphicView in Frameworks */,
 				46908EB62513C971003252BA /* OktaAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,13 +128,7 @@
 				466C427C249A8749007D033E /* Assets.xcassets */,
 				466C4281249A8749007D033E /* Info.plist */,
 				466C4287249A889F007D033E /* File Organization.md */,
-				12B3ABC625C51706004ADB30 /* NeumorphicView.xib */,
-				12B3ABC925C51758004ADB30 /* NeumorphicView.swift */,
-				12B3ABCC25C520CA004ADB30 /* LoginNeumorphicView.xib */,
-				12B3ABCF25C523C9004ADB30 /* LoginNeumorphicView.swift */,
 				12B3ABE025C85050004ADB30 /* Extensions.swift */,
-				12B3ABD225C52B40004ADB30 /* FavoritesNeumorphicView.xib */,
-				12B3ABD525C52B6F004ADB30 /* FavoritesNeumorphicView.swift */,
 			);
 			path = "labs-ios-starter";
 			sourceTree = "<group>";
@@ -225,6 +209,7 @@
 			name = "labs-ios-starter";
 			packageProductDependencies = (
 				46908EB52513C971003252BA /* OktaAuth */,
+				12A72F7A25D37CE400E49C3A /* EMTNeumorphicView */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -256,6 +241,7 @@
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
 				46908EB42513C971003252BA /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				12A72F7925D37CE400E49C3A /* XCRemoteSwiftPackageReference "EMTNeumorphicView" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -271,15 +257,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B3ABC725C51706004ADB30 /* NeumorphicView.xib in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				12E1A55225C11225009A1A4E /* Map.storyboard in Resources */,
 				FA91935C25CA58CC00ED5076 /* FavoritesView.storyboard in Resources */,
-				12B3ABD325C52B40004ADB30 /* FavoritesNeumorphicView.xib in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
-				12B3ABCD25C520CA004ADB30 /* LoginNeumorphicView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B3ABD625C52B6F004ADB30 /* FavoritesNeumorphicView.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				12B3ABE125C85050004ADB30 /* Extensions.swift in Sources */,
 				FAC76A5325CBC35900C22F32 /* FavoritesModel.swift in Sources */,
@@ -304,13 +286,11 @@
 				12E1A54F25C11213009A1A4E /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				FAC76A5025CBC28300C22F32 /* FavoritesCollectionViewCell.swift in Sources */,
-				12B3ABCA25C51758004ADB30 /* NeumorphicView.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				12E1A54C25C111E5009A1A4E /* LocationSearchTableVC.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
-				12B3ABD025C523C9004ADB30 /* LoginNeumorphicView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		12A72F7925D37CE400E49C3A /* XCRemoteSwiftPackageReference "EMTNeumorphicView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hirokimu/EMTNeumorphicView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		46908EB42513C971003252BA /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SpencerCurtis/OktaAuth.git";
@@ -527,6 +515,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		12A72F7A25D37CE400E49C3A /* EMTNeumorphicView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12A72F7925D37CE400E49C3A /* XCRemoteSwiftPackageReference "EMTNeumorphicView" */;
+			productName = EMTNeumorphicView;
+		};
 		46908EB52513C971003252BA /* OktaAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 46908EB42513C971003252BA /* XCRemoteSwiftPackageReference "OktaAuth" */;
