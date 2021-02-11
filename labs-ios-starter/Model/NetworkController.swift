@@ -17,7 +17,7 @@ protocol NetworkPlaceholder {
     func get(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
-class NetworkController: GetUserInput {
+class NetworkController {
     
     var myUserInput: String?
     let network: NetworkPlaceholder

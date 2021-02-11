@@ -14,6 +14,8 @@ class DetailViewController: UIViewController {
     
     var isFavorite: Bool = false
     var walkability: Int?
+    var cityController: CityController?
+    var city: City?
     
     // MARK: - IBOutlets
     
@@ -24,7 +26,18 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         isFavorite.toggle()
-        favoriteButton.image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        if let cityController = cityController,
+           let city = city {
+            if isFavorite {
+                favoriteButton.image = UIImage(systemName: "heart.fill")
+                cityController.favoriteToggled(city: city)
+            } else {
+                favoriteButton.image = UIImage(systemName: "heart")
+                if cityController.favoriteCities.contains(city) {
+                    cityController.favoriteToggled(city: city)
+                }
+            }
+        }
     }
     
     // MARK: - Lifecycle
@@ -36,6 +49,7 @@ class DetailViewController: UIViewController {
     
     func updateViews() {
         updateWalkabilityGrade()
+        checkIfFavorite()
     }
     
     // MARK: - Methods
@@ -49,6 +63,15 @@ class DetailViewController: UIViewController {
             walkabilityScore.textColor = .systemYellow
         } else {
             walkabilityScore.textColor = .systemRed
+        }
+    }
+    
+    func checkIfFavorite() {
+        if let cityController = cityController,
+           let city = city {
+            if cityController.favoriteCities.contains(city) {
+                favoriteButton.image = UIImage(systemName: "heart.fill")
+            }
         }
     }
     
