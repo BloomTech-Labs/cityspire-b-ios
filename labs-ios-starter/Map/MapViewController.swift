@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    let cityController = CityController()
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
     var selectedPin: MKPlacemark? = nil
@@ -72,8 +73,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
         guard let locationTitle  = view.annotation?.subtitle else { return }
-        detailVC.title = locationTitle
-        detailVC.walkability = 99
+        
+        if let locationTitle = locationTitle {
+            let city = City(name: locationTitle, walkability: 99)
+            detailVC.city = city
+            detailVC.title = locationTitle
+            detailVC.walkability = 99
+            detailVC.cityController = cityController
+        }
+        
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
