@@ -19,11 +19,8 @@ class CityController {
     func favoriteToggled(city: City) {
         if favoriteCities.contains(city) {
             favoriteCities.removeAll { $0 == city }
-            print("Removed \(city)")
-            print("Favorite cities: \(favoriteCities)")
         } else {
             favoriteCities.append(city)
-            print("Appended \(city)")
         }
     }
     
