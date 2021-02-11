@@ -104,7 +104,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapLogin() {
-        print("login tapped")
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     

@@ -17,17 +17,12 @@ protocol NetworkPlaceholder {
     func get(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
-class NetworkController: GetUserInput {
+class NetworkController {
     
     var myUserInput: String?
     let network: NetworkPlaceholder
     init(network: NetworkPlaceholder = URLSession.shared) {
         self.network = network
-    }
-    
-    func capturingUserInput(userInput: String) {
-        myUserInput = userInput
-        print(myUserInput)
     }
     
     func fetch(completion: @escaping (Walkability?, Error) -> Void) {
