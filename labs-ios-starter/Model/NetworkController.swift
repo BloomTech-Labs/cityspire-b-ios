@@ -25,11 +25,6 @@ class NetworkController {
         self.network = network
     }
     
-    func capturingUserInput(userInput: String) {
-        myUserInput = userInput
-        print(myUserInput)
-    }
-    
     func fetch(completion: @escaping (Walkability?, Error) -> Void) {
         let url = URL(string: "https://api.walkscore.com/score?format=json&address=$address")!
         let request = URLRequest(url: url)
