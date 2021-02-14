@@ -29,7 +29,7 @@ class LocationSearchTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.textLabel?.text = selectedItem.name
-        let address = "\(selectedItem.locality ?? ""), \(selectedItem.subLocality ?? ""), \(selectedItem.administrativeArea ?? ""), \(selectedItem.postalCode ?? ""), \(selectedItem.country ?? "")"
+        let address = "\(selectedItem.locality ?? ""), \(selectedItem.administrativeArea ?? ""),  \(selectedItem.country ?? "")"
     
         cell.detailTextLabel?.text = address
         return cell

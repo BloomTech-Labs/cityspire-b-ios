@@ -16,12 +16,14 @@ class DetailViewController: UIViewController {
     var walkability: Int?
     var cityController: CityController?
     var city: City?
-    
+    var zip: String?
+    var address: String?
     // MARK: - IBOutlets
     
     @IBOutlet weak var walkabilityScore: UILabel!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    
+    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var addressTextView: UITextView!
     // MARK: - IBActions
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
@@ -50,6 +52,8 @@ class DetailViewController: UIViewController {
     func updateViews() {
         updateWalkabilityGrade()
         checkIfFavorite()
+        updateZip()
+        updateAddress()
     }
     
     // MARK: - Methods
@@ -72,6 +76,18 @@ class DetailViewController: UIViewController {
             if cityController.favoriteCities.contains(city) {
                 favoriteButton.image = UIImage(systemName: "heart.fill")
             }
+        }
+    }
+    
+    func updateZip() {
+        if let zip = zip {
+            zipLabel.text = zip
+        }
+    }
+    
+    func updateAddress() {
+        if let address = address {
+            addressTextView.text = address
         }
     }
     
