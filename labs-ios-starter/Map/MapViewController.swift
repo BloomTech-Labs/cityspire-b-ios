@@ -18,7 +18,6 @@ extension String {
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-    @IBOutlet weak var bottomNavBar: UINavigationItem!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -40,7 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             print("starbucks Locations: \(newLocations.count)")
             let addedLocations = Array(newLocations.subtracting(oldLocations))
             let removedLocations = Array(oldLocations.subtracting(newLocations))
-
+            
             mapView.removeAnnotations(removedLocations)
             mapView.addAnnotations(addedLocations)
         }
@@ -105,7 +104,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             shouldRequestWSAgain = true
             return
         }
-
+        
         isCurrentlyFetchingWS = true
         let visibleRegion = mapView.visibleMapRect
         
@@ -130,7 +129,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let sortedLocation = locations.sorted(by: { (a, b) -> Bool in
                 a.location > b.location
             })
-        
+            
             self.starbucksLocations = Array(sortedLocation.prefix(100))
         }
     }
@@ -138,9 +137,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
         
-        
         guard let locationTitle  = view.annotation?.subtitle else { return }
-
+        
         if let locationTitle = locationTitle {
             
             let city = City(name: locationTitle, walkability: 99)
@@ -151,12 +149,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             detailVC.zip = view.annotation?.title ?? ""
             detailVC.address = view.annotation?.subtitle ?? ""
         }
-
+        
         detailVC.modalTransitionStyle = .coverVertical
         detailVC.modalPresentationStyle = .formSheet
         self.present(detailVC, animated: true, completion: nil)
-
-
         
     }
     
@@ -174,13 +170,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         annotaionView.image = #imageLiteral(resourceName: "Starbucks-Logo-1992")
         annotaionView.markerTintColor = .clear
-
-        annotaionView.canShowCallout = true
-        let detailView = LocationDView()
-        detailView.location = location
-        annotaionView.detailCalloutAccessoryView = detailView
-        detailView.superview?.superview?.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
-        
+        annotaionView.glyphTintColor = .clear
         return annotaionView
     }
 }
@@ -203,26 +193,24 @@ extension MapViewController : CLLocationManagerDelegate {
     private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("error:: \(error.localizedDescription)")
     }
-    
-    
 }
 
 extension MapViewController: HandleMapSearch {
-        
+    
     func dropPinZoomIn(placemark: MKPlacemark){
         // cache the pin
         selectedPin = placemark
         // todo: clear existing pins
         let annotation = MKPointAnnotation()
-
+        
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
-                
+        
         if let city = placemark.locality,
            let state = placemark.administrativeArea {
             annotation.subtitle = "\(city), \(state)"
         }
-
+        
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)

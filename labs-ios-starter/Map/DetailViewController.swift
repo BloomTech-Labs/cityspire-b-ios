@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EMTNeumorphicView
 
 class DetailViewController: UIViewController {
     
@@ -55,6 +56,7 @@ class DetailViewController: UIViewController {
         checkIfFavorite()
         updateZip()
         updateAddress()
+        configureFaveButton()
     }
     
     // MARK: - Methods
@@ -93,4 +95,30 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func configureFaveButton() {
+        
+        let button0 = EMTNeumorphicButton(type: .custom)
+        view.addSubview(button0)
+        button0.setImage(UIImage(named: "heart-outline"), for: .normal)
+        button0.setImage(UIImage(named: "heart-solid"), for: .selected)
+        button0.contentVerticalAlignment = .fill
+        button0.contentHorizontalAlignment = .fill
+        button0.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
+        button0.translatesAutoresizingMaskIntoConstraints = false
+        button0.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
+        // set parameters
+        button0.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
+        button0.neumorphicLayer?.cornerRadius = 22.5
+        
+        NSLayoutConstraint.activate([
+            button0.widthAnchor.constraint(equalToConstant: 70),
+            button0.heightAnchor.constraint(equalToConstant: 70),
+            button0.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
+            button0.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 160 - 16),
+        ])
+    }
+    
+    @objc func tapped(_ button: EMTNeumorphicButton) {
+        button.isSelected = !button.isSelected
+    }
 }

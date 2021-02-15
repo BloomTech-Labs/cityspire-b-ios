@@ -35,7 +35,7 @@ let configuration = URLSessionConfiguration.default
 let session = URLSession(configuration: configuration)
 
 class NetworkController {
-   
+    
     var zipCode: String?
     
     var myUserInput: String?
@@ -44,12 +44,12 @@ class NetworkController {
     init(network: NetworkPlaceholder = URLSession.shared) {
         self.network = network
     }
-
+    
     let baseURL = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/starbucks.json")!
     
     func fetchWalkScore(in region: MKMapRect? = nil, completion: @escaping ([Location]?, Error?) -> Void) {
-
-            
+        
+        
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         
         var queryItems: [URLQueryItem] = []
@@ -58,7 +58,7 @@ class NetworkController {
             let coordinates = CoordinateRegion(mapRect: region)
             queryItems.append(contentsOf: coordinates.queryItems)
         }
-    
+        
         queryItems.append(URLQueryItem(name: "access_token", value: "pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg"))
         
         urlComponents?.queryItems = queryItems
@@ -108,76 +108,7 @@ class NetworkController {
                     completion(nil, error)
                 }
             }
-            
         }.resume()
     }
 }
 
-    
-    
-//    func fetch(completion: @escaping (Walkability?, Error) -> Void) {
-//        let url = URL(string: "https://api.walkscore.com/score?format=json&address=$address")!
-//        let request = URLRequest(url: url)
-//        network.get(request: request) { data, response, error in
-//            if let error = error {
-//                completion(nil, error)
-//            }
-//
-//            guard let response = response as? HTTPURLResponse,
-//                  response.statusCode == 200 else {
-//                completion(nil, NetworkError.invalidResponse)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                completion(nil, NetworkError.noData)
-//                return
-//            }
-//
-//            do {
-//                let jsonDecoder = JSONDecoder()
-//                let walkScore = try jsonDecoder.decode(Walkability.self, from: data)
-//                completion(walkScore, NetworkError.noData)
-//
-//            } catch (let error) {
-//                completion(nil, error)
-//            }
-//        }
-//    }
-//
-//    func fetchZipCode(lat: String, long: String, completion: @escaping (ZipResults?, Error) -> Void) {
-//
-//        guard let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(long),\(lat).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg") else {
-//            fatalError()
-//        }
-//
-//        let task = session.dataTask(with: url) { data, response, error in
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                  (200..<300).contains(httpResponse.statusCode) else {
-//                completion(nil, NetworkError.invalidResponse)
-//                return
-//            }
-//            guard let data = data else {
-//                completion(nil, NetworkError.invalidResponse)
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let zipResults = try decoder.decode(ZipResults.self, from: data)
-//                self.zipCode = zipResults.features[0].zipCode
-//
-//                DispatchQueue.main.async {
-//                    print("\(zipResults.features[0].zipCode)")
-//                    completion(zipResults, NetworkError.noData)
-//                }
-//
-//            } catch {
-//                print("Decoding error: \(error)")
-//                completion(nil, error)
-//            }
-//
-//        }
-//        task.resume()
-//    }
-//}

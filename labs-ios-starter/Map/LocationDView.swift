@@ -9,12 +9,11 @@
 import UIKit
 
 class LocationDView: UIView {
-
+    
     // MARK: - Properties
     var location: Location? {
         didSet {
             updateSubviews()
-            
         }
     }
     
@@ -22,7 +21,6 @@ class LocationDView: UIView {
     private let locationLabel = UILabel()
     private let latitudeLabel = UILabel()
     private let longitudeLabel = UILabel()
-    
     
     private lazy var latLonFormatter: NumberFormatter = {
         let result = NumberFormatter()
@@ -61,7 +59,6 @@ class LocationDView: UIView {
     // MARK: - Private
     
     private func updateSubviews() {
-
         guard let location = location else { return }
         let name = location.name
         let adress = location.location
