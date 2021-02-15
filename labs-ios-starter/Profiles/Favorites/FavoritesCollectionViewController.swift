@@ -13,31 +13,31 @@ private let reuseIdentifier = "CityCell"
 class FavoritesCollectionViewController: UICollectionViewController {
     
     let dummyFavorites: [Favorites] = [Favorites(city: "Southaven", state: "Mississippi"),
-                                  Favorites(city: "Memphis", state: "Tennessee"),
-                                  Favorites(city: "Olive Branch", state: "Mississippi")]
+                                       Favorites(city: "Memphis", state: "Tennessee"),
+                                       Favorites(city: "Olive Branch", state: "Mississippi")]
     
     @IBOutlet var cell: UICollectionViewCell!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
     }
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return dummyFavorites.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoritesCollectionViewCell else { return UICollectionViewCell() }
-    
+        
         // Configure the cell
         let favorites: Favorites
         
@@ -45,7 +45,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         
         // updating UI's
         cell.cityStateLabel.text = "\(favorites.city.capitalized), \(favorites.state.capitalized)"
-    
+        
         return cell
     }
 }
