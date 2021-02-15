@@ -9,16 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="zJ5-fQ-y8Z">
             <objects>
                 <navigationController id="4AE-Ks-TCP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-outline" selectedImage="heart-outline" id="ID3-cx-L8A"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ctm-5z-UgG">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aeG-q2-zmn" kind="relationship" relationship="rootViewController" id="3HT-oC-BG9"/>
+                        <segue destination="aeG-q2-zmn" kind="relationship" relationship="rootViewController" destinationCreationSelector="faveSegue" id="3HT-oC-BG9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-oW-RzL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -73,10 +75,11 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIH-8O-kha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1955.072463768116" y="-1970.0892857142856"/>
+            <point key="canvasLocation" x="-1800" y="-1979"/>
         </scene>
     </scenes>
     <resources>
+        <image name="heart-outline" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

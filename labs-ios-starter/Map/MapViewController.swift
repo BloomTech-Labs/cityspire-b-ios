@@ -18,7 +18,8 @@ extension String {
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-
+    @IBOutlet weak var bottomNavBar: UINavigationItem!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     let WalkingScoreNetworkController = NetworkController()
@@ -60,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: .annotationReuseIdentifier)
-        
+        view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
         mapView.delegate = self
         addUserTrackingButton()
         addSearchbarTable()
@@ -93,7 +94,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         NSLayoutConstraint.activate([
             userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
-            mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 60)
+            mapView.bottomAnchor.constraint(equalTo: userTrackingButton.bottomAnchor, constant: 90)
         ])
     }
     
@@ -178,6 +179,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let detailView = LocationDView()
         detailView.location = location
         annotaionView.detailCalloutAccessoryView = detailView
+        detailView.superview?.superview?.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
         
         return annotaionView
     }

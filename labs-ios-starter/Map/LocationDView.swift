@@ -14,6 +14,7 @@ class LocationDView: UIView {
     var location: Location? {
         didSet {
             updateSubviews()
+            
         }
     }
     
@@ -60,6 +61,7 @@ class LocationDView: UIView {
     // MARK: - Private
     
     private func updateSubviews() {
+
         guard let location = location else { return }
         let name = location.name
         let adress = location.location

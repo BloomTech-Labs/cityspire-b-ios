@@ -9,11 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="Z5r-DM-MOZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5kU-21-3IP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="ujw-bn-FKq"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t1W-t0-AYQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,16 +59,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XU-Dw-F8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2231" y="84"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="4DJ-hw-6AM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="BP0-qn-eKH" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7xi-JT-vN7"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LS2-TT-lwA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2214" y="182"/>
         </scene>
         <!--Add Profile View Controller-->
         <scene sceneID="Rcb-Kk-CcR">
@@ -151,6 +143,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
