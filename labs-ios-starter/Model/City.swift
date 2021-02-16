@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct City: Equatable {
+struct City: Equatable, Codable {
     
     var name: String
     var walkability: Int

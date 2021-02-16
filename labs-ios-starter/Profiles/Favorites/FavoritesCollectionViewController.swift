@@ -11,10 +11,10 @@ import UIKit
 private let reuseIdentifier = "CityCell"
 
 class FavoritesCollectionViewController: UICollectionViewController {
-    
-    let dummyFavorites: [Favorites] = [Favorites(city: "Southaven", state: "Mississippi"),
-                                       Favorites(city: "Memphis", state: "Tennessee"),
-                                       Favorites(city: "Olive Branch", state: "Mississippi")]
+
+    // MARK: - Properties
+
+    var cityController: CityController?
     
     @IBOutlet var cell: UICollectionViewCell!
     
@@ -26,26 +26,17 @@ class FavoritesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return dummyFavorites.count
+        guard let cityController = cityController else { return 0 }
+        return cityController.favoriteCities.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoritesCollectionViewCell else { return UICollectionViewCell() }
-        
-        // Configure the cell
-        let favorites: Favorites
-        
-        favorites = dummyFavorites[indexPath.item]
-        
-        // updating UI's
-        cell.cityStateLabel.text = "\(favorites.city.capitalized), \(favorites.state.capitalized)"
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+        cell.cityStateLabel.text = cityController?.favoriteCities[indexPath.row].name
         return cell
     }
 }
