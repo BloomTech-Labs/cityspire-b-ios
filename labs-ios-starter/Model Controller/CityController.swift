@@ -11,8 +11,13 @@ import UIKit
 class CityController {
     
     // MARK: - Properties
-    
-    var favoriteCities: [City] = []
+
+    // Mock data is being used for now
+    var favoriteCities: [City] = [
+        City(name: "Shafter, CA", walkability: 40),
+        City(name: "Bakersfield, CA", walkability: 65),
+        City(name: "Bellevue, WA", walkability: 78)
+    ]
     
     // MARK: - Methods
     

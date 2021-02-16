@@ -173,6 +173,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotaionView.glyphTintColor = .clear
         return annotaionView
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FavoritesSegue" {
+            guard let favoritesVC = segue.destination as? FavoritesCollectionViewController else { return }
+            favoritesVC.cityController = cityController
+        }
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {
