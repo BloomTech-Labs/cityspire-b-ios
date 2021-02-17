@@ -152,7 +152,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             let city = City(name: locationTitle, walkability: 99)
             detailVC.city = city
-            detailVC.title = "\(locationTitle) \(zip ?? "still nill brah")"
+            detailVC.title = "\(locationTitle) \(zip ?? "")"
             detailVC.walkability = 99
             detailVC.cityController = cityController
             detailVC.zip = view.annotation?.title ?? ""

@@ -32,6 +32,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     func updateViews() {
         collectionView.reloadData()
+        collectionView.delegate = self
         configureLabel()
     }
 
@@ -75,6 +76,19 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+              
+        // we need to pass data to the detail view here.........
+        
+        
+        
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
+        
+        detailVC.modalTransitionStyle = .coverVertical
+        detailVC.modalPresentationStyle = .formSheet
+        self.present(detailVC, animated: true, completion: nil)
+    }
 
     // MARK: - OBJC Methods
 
@@ -104,3 +118,4 @@ extension FavoritesCollectionViewController: CityControllerDelegate {
     }
 
 }
+
