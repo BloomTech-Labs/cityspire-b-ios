@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var addressTextView: UITextView!
     // MARK: - IBActions
     
-    @IBAction func favoriteButtonTapped(_ sender: Any) {
+    @objc func favoriteButtonTapped(_ sender: Any) {
         isFavorite.toggle()
         if let cityController = cityController,
            let city = city {
@@ -120,5 +120,18 @@ class DetailViewController: UIViewController {
     
     @objc func tapped(_ button: EMTNeumorphicButton) {
         button.isSelected = !button.isSelected
+        isFavorite.toggle()
+        if let cityController = cityController,
+           let city = city {
+            if isFavorite {
+                button.isSelected = true
+                cityController.favoriteToggled(city: city)
+            } else {
+                button.isSelected = false
+                if cityController.favoriteCities.contains(city) {
+                    cityController.favoriteToggled(city: city)
+                }
+            }
+        }
     }
 }

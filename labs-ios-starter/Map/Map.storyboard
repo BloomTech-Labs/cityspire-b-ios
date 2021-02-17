@@ -129,11 +129,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yLX-Tv-G53">
-                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="mHM-15-5oo">
-                            <connections>
-                                <action selector="favoriteButtonTapped:" destination="WOm-0e-P9W" id="NqU-oE-RnH"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="mHM-15-5oo"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextView" destination="h2i-4g-taA" id="VkG-yi-wYF"/>
@@ -170,7 +166,7 @@
         <!--FavoritesView-->
         <scene sceneID="2E5-z9-jJU">
             <objects>
-                <viewControllerPlaceholder storyboardName="FavoritesView" id="f5n-sP-lTI" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="FavoritesView" storyboardName="FavoritesView" id="f5n-sP-lTI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="heart-outline" selectedImage="heart-outline" id="R3a-6O-Udm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DlH-a3-QeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

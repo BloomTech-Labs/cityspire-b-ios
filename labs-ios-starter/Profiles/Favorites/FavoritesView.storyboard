@@ -29,7 +29,7 @@
         <!--Favorites-->
         <scene sceneID="e3j-ZR-Wnq">
             <objects>
-                <collectionViewController storyboardIdentifier="favoritesView" id="aeG-q2-zmn" customClass="FavoritesCollectionViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="favoritesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aeG-q2-zmn" customClass="FavoritesCollectionViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ugr-Ee-uLa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

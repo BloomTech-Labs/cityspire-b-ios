@@ -13,11 +13,12 @@ class CityController {
     // MARK: - Properties
 
     // Mock data is being used for now
-    var favoriteCities: [City] = [
-        City(name: "Shafter, CA", walkability: 40),
-        City(name: "Bakersfield, CA", walkability: 65),
-        City(name: "Bellevue, WA", walkability: 78)
-    ]
+//    var favoriteCities: [City] = [
+//        City(name: "Shafter, CA", walkability: 40),
+//        City(name: "Bakersfield, CA", walkability: 65),
+//        City(name: "Bellevue, WA", walkability: 78)
+//    ]
+    var favoriteCities: [City] = []
     
     // MARK: - Methods
     
@@ -26,6 +27,7 @@ class CityController {
             favoriteCities.removeAll { $0 == city }
         } else {
             favoriteCities.append(city)
+            print(favoriteCities)
         }
         save()
     }
