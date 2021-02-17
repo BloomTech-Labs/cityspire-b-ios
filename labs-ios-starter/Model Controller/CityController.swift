@@ -12,12 +12,6 @@ class CityController {
     
     // MARK: - Properties
 
-    // Mock data is being used for now
-//    var favoriteCities: [City] = [
-//        City(name: "Shafter, CA", walkability: 40),
-//        City(name: "Bakersfield, CA", walkability: 65),
-//        City(name: "Bellevue, WA", walkability: 78)
-//    ]
     var favoriteCities: [City] = []
     
     // MARK: - Methods
@@ -27,7 +21,6 @@ class CityController {
             favoriteCities.removeAll { $0 == city }
         } else {
             favoriteCities.append(city)
-            print(favoriteCities)
         }
         save()
     }
@@ -41,34 +34,34 @@ class CityController {
     }
 
     func save() {
-            let encoder = PropertyListEncoder()
+        let encoder = PropertyListEncoder()
 
-            do {
-                let favoritesData = try encoder.encode(favoriteCities)
+        do {
+            let favoritesData = try encoder.encode(favoriteCities)
 
-                if let favoritesURL = favoritesURL {
-                    try favoritesData.write(to: favoritesURL)
-                }
-            } catch {
-                NSLog("Error encoding items: \(error.localizedDescription)")
+            if let favoritesURL = favoritesURL {
+                try favoritesData.write(to: favoritesURL)
             }
+        } catch {
+            NSLog("Error encoding items: \(error.localizedDescription)")
         }
+    }
 
     func load() {
-            let decoder = PropertyListDecoder()
-            let fm = FileManager.default
+        let decoder = PropertyListDecoder()
+        let fm = FileManager.default
 
-            guard let favoritesURL = favoritesURL,
-                  fm.fileExists(atPath: favoritesURL.path) else { return }
+        guard let favoritesURL = favoritesURL,
+              fm.fileExists(atPath: favoritesURL.path) else { return }
 
-            do {
-                let favoritesData = try Data(contentsOf: favoritesURL)
+        do {
+            let favoritesData = try Data(contentsOf: favoritesURL)
 
-                let decodedFavorites = try decoder.decode([City].self, from: favoritesData)
-                favoriteCities = decodedFavorites
-            } catch {
-                NSLog("Error decoding items: \(error.localizedDescription)")
-            }
+            let decodedFavorites = try decoder.decode([City].self, from: favoritesData)
+            favoriteCities = decodedFavorites
+        } catch {
+            NSLog("Error decoding items: \(error.localizedDescription)")
         }
+    }
     
 }

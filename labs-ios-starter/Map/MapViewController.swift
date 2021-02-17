@@ -18,39 +18,48 @@ extension String {
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
+
+    // MARK: - Properties
+
     let WalkingScoreNetworkController = NetworkController()
-    
+
     let cityController = CityController()
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
-    
+
     var selectedPin: MKPlacemark? = nil
     var zip: String?
     private var userTrackingButton: MKUserTrackingButton!
-    
+
     var starbucksLocations: [Location] = [] {
         didSet {
-            
+
             let oldLocations = Set(oldValue)
             let newLocations = Set(starbucksLocations)
             print("starbucks Locations: \(newLocations.count)")
             let addedLocations = Array(newLocations.subtracting(oldLocations))
             let removedLocations = Array(oldLocations.subtracting(newLocations))
-            
+
             mapView.removeAnnotations(removedLocations)
             mapView.addAnnotations(addedLocations)
         }
     }
-    
+
     private var isCurrentlyFetchingWS = false
     private var shouldRequestWSAgain = false
+
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var mapView: MKMapView!
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cityController.load()
+        for city in cityController.favoriteCities {
+            print(city.name)
+        }
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -68,12 +77,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("I am a person")
         guard let favoritesVC = storyboard?.instantiateViewController(identifier: "FavoritesView") as? FavoritesCollectionViewController else { return }
         favoritesVC.cityController = cityController
-        cityController.load()
-        print(cityController.favoriteCities)
     }
+
+    // MARK: - Methods
     
     func addSearchbarTable() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableVC
@@ -191,6 +199,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
 }
+
+// MARK: - Extensions
 
 extension MapViewController : CLLocationManagerDelegate {
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

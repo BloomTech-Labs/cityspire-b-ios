@@ -19,12 +19,14 @@ class DetailViewController: UIViewController {
     var city: City?
     var zip: String?
     var address: String?
+
     // MARK: - IBOutlets
     
     @IBOutlet weak var walkabilityScore: UILabel!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var zipLabel: UILabel!
     @IBOutlet weak var addressTextView: UITextView!
+
     // MARK: - IBActions
     
     @objc func favoriteButtonTapped(_ sender: Any) {
@@ -49,6 +51,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
         updateViews()
+        if let cityController = cityController {
+            for city in cityController.favoriteCities {
+                print(city.name)
+            }
+        }
     }
     
     func updateViews() {
@@ -133,5 +140,6 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+        print(cityController?.favoriteCities)
     }
 }
