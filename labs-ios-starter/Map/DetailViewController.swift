@@ -10,7 +10,7 @@ import UIKit
 import EMTNeumorphicView
 
 class DetailViewController: UIViewController {
-    
+
     // MARK: - Properties
     
     var isFavorite: Bool = false
@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     var city: City?
     var zip: String?
     var address: String?
+    
     
     // MARK: - IBOutlets
     

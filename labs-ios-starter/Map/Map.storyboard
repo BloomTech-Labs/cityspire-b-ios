@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -83,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="1311.5942028985507" y="184.82142857142856"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--DetailViewController-->
         <scene sceneID="DG2-Id-Tgw">
             <objects>
-                <viewController storyboardIdentifier="DetailVC" id="WOm-0e-P9W" customClass="DetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" title="DetailViewController" id="WOm-0e-P9W" customClass="DetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SGL-2f-Afy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,23 +153,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="GKI-eC-3j6" kind="relationship" relationship="viewControllers" id="DaQ-rd-jOK"/>
-                        <segue destination="f5n-sP-lTI" kind="relationship" relationship="viewControllers" id="0pO-e7-Tu3"/>
+                        <segue destination="g11-dR-Ctd" kind="relationship" relationship="viewControllers" id="Npg-hP-klA"/>
                         <segue destination="gGU-za-leb" kind="relationship" relationship="viewControllers" id="FHu-eg-eDe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qf-rG-h1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1572" y="185"/>
-        </scene>
-        <!--FavoritesView-->
-        <scene sceneID="2E5-z9-jJU">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="FavoritesView" storyboardName="FavoritesView" id="f5n-sP-lTI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="heart-outline" selectedImage="heart-outline" id="R3a-6O-Udm"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DlH-a3-QeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2069" y="699"/>
         </scene>
         <!--Main-->
         <scene sceneID="GCR-c1-fZL">
@@ -203,7 +194,7 @@
         <!--Navigation Controller-->
         <scene sceneID="KeF-wS-Yf2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LLE-qN-ko0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavDetailVC" automaticallyAdjustsScrollViewInsets="NO" id="LLE-qN-ko0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VN0-AS-hGC">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -218,11 +209,94 @@
             </objects>
             <point key="canvasLocation" x="551" y="904"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="jZx-dN-WHW">
+            <objects>
+                <navigationController id="g11-dR-Ctd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-outline" selectedImage="heart-outline" id="nj6-OI-kmY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Bdc-Al-v9i">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hM9-jP-G8O" kind="relationship" relationship="rootViewController" destinationCreationSelector="faveSegue" id="VXB-IY-8mX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngC-nc-c5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1787" y="1268"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="0wb-Dq-2zI">
+            <objects>
+                <collectionViewController storyboardIdentifier="favoritesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hM9-jP-G8O" customClass="FavoritesCollectionViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="INN-v2-1DW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jRW-Ub-vdD">
+                            <size key="itemSize" width="140" height="180"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityCell" id="cHp-Dj-y70" customClass="FavoritesCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="140" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S26-oB-Zpd">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7c-B6-NXS">
+                                            <rect key="frame" x="0.0" y="99" width="140" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-br-shD">
+                                            <rect key="frame" x="108" y="8" width="24" height="26"/>
+                                            <state key="normal" image="trash" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                            <state key="selected" image="trash.fill" catalog="system"/>
+                                            <state key="highlighted" image="trash.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dbm-br-shD" firstAttribute="top" secondItem="S26-oB-Zpd" secondAttribute="top" constant="8" id="iXV-NP-bsE"/>
+                                        <constraint firstAttribute="trailing" secondItem="dbm-br-shD" secondAttribute="trailing" constant="8" id="mHr-QL-WEG"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="cityStateLabel" destination="q7c-B6-NXS" id="lmR-Sw-EiC"/>
+                                    <outlet property="deleteButton" destination="dbm-br-shD" id="Ck5-RY-Sy0"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="hM9-jP-G8O" id="YBE-Bn-eRH"/>
+                            <outlet property="delegate" destination="hM9-jP-G8O" id="p4Y-a8-LQo"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Favorites" id="MKg-hk-HUo"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFp-xr-Etv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-884" y="1268"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart-outline" width="24" height="24"/>
         <image name="map" catalog="system" width="128" height="110"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
