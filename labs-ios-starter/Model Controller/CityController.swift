@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol CityControllerDelegate {
+    func favoriteWasChanged()
+}
+
 class CityController {
     
     // MARK: - Properties
 
     var favoriteCities: [City] = []
+    var delegate: CityControllerDelegate?
     
     // MARK: - Methods
     
@@ -22,6 +27,7 @@ class CityController {
         } else {
             favoriteCities.append(city)
         }
+        delegate?.favoriteWasChanged()
         save()
     }
 

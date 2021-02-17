@@ -16,23 +16,17 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     var cityController: CityController?
     var temp: Int = 0
+
+    // MARK: - IBOutlets
     
     @IBOutlet var cell: UICollectionViewCell!
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        if let cityController = cityController {
-            for city in cityController.favoriteCities {
-                print(city.name)
-            }
-        } else {
-            print(temp)
-        }
+        cityController?.delegate = self
     }
     
     // MARK: UICollectionViewDataSource
@@ -56,5 +50,11 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width - 3 * 20) / 2
         return CGSize(width: width, height: 1.2 * width)
+    }
+}
+
+extension FavoritesCollectionViewController: CityControllerDelegate {
+    func favoriteWasChanged() {
+        collectionView.reloadData()
     }
 }
