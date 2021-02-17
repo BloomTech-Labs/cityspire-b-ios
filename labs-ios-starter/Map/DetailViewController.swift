@@ -23,7 +23,6 @@ class DetailViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var walkabilityScore: UILabel!
-    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var zipLabel: UILabel!
     @IBOutlet weak var addressTextView: UITextView!
 
@@ -34,10 +33,8 @@ class DetailViewController: UIViewController {
         if let cityController = cityController,
            let city = city {
             if isFavorite {
-                favoriteButton.image = UIImage(systemName: "heart.fill")
                 cityController.favoriteToggled(city: city)
             } else {
-                favoriteButton.image = UIImage(systemName: "heart")
                 if cityController.favoriteCities.contains(city) {
                     cityController.favoriteToggled(city: city)
                 }
@@ -55,7 +52,6 @@ class DetailViewController: UIViewController {
     
     func updateViews() {
         updateWalkabilityGrade()
-        checkIfFavorite()
         updateZip()
         updateAddress()
         configureFaveButton()
@@ -72,15 +68,6 @@ class DetailViewController: UIViewController {
             walkabilityScore.textColor = .systemYellow
         } else {
             walkabilityScore.textColor = .systemRed
-        }
-    }
-    
-    func checkIfFavorite() {
-        if let cityController = cityController,
-           let city = city {
-            if cityController.favoriteCities.contains(city) {
-                favoriteButton.image = UIImage(systemName: "heart.fill")
-            }
         }
     }
     
@@ -135,6 +122,5 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-        print(cityController?.favoriteCities)
     }
 }

@@ -15,7 +15,6 @@ class FavoritesCollectionViewController: UICollectionViewController {
     // MARK: - Properties
 
     var cityController: CityController?
-    var temp: Int = 0
 
     // MARK: - IBOutlets
     
@@ -42,19 +41,37 @@ class FavoritesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
         cell.cityStateLabel.text = cityController?.favoriteCities[indexPath.row].name
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteFavoriteCity(sender:)), for: .touchUpInside)
+
         return cell
     }
+
+    // MARK: - OBJC Methods
+
+    @objc func deleteFavoriteCity(sender: UIButton) {
+        guard let cityController = cityController else { return }
+        cityController.removeFavoriteCity(deleting: (cityController.favoriteCities[sender.tag]))
+    }
+
 }
 
+// MARK: - Protocol extensions
+
 extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width - 3 * 20) / 2
         return CGSize(width: width, height: 1.2 * width)
     }
+
 }
 
 extension FavoritesCollectionViewController: CityControllerDelegate {
+
     func favoriteWasChanged() {
         collectionView.reloadData()
     }
+
 }
+

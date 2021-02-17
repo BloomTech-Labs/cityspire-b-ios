@@ -31,6 +31,14 @@ class CityController {
         save()
     }
 
+    func removeFavoriteCity(deleting city: City) {
+        if favoriteCities.contains(city) {
+            favoriteCities.removeAll { $0 == city }
+        }
+        delegate?.favoriteWasChanged()
+        save()
+    }
+
     // MARK: - Persistence
 
     var favoritesURL: URL? {
