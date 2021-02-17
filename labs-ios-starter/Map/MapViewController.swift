@@ -67,6 +67,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         fetchWalkScore()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        print("I am a person")
+        guard let favoritesVC = storyboard?.instantiateViewController(identifier: "FavoritesView") as? FavoritesCollectionViewController else { return }
+        favoritesVC.cityController = cityController
+        cityController.load()
+        print(cityController.favoriteCities)
+    }
+    
     func addSearchbarTable() {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableVC
         
