@@ -27,16 +27,16 @@ class CityController {
         } else {
             favoriteCities.append(city)
         }
-        delegate?.favoriteWasChanged()
         save()
+        delegate?.favoriteWasChanged()
     }
 
     func removeFavoriteCity(deleting city: City) {
         if favoriteCities.contains(city) {
             favoriteCities.removeAll { $0 == city }
         }
-        delegate?.favoriteWasChanged()
         save()
+        delegate?.favoriteWasChanged()
     }
 
     // MARK: - Persistence

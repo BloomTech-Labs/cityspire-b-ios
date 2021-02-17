@@ -15,6 +15,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     // MARK: - Properties
 
     var cityController: CityController?
+    let emptyFavoritesLabel = UILabel()
 
     // MARK: - IBOutlets
     
@@ -26,6 +27,34 @@ class FavoritesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
         cityController?.delegate = self
+        updateViews()
+    }
+
+    func updateViews() {
+        collectionView.reloadData()
+        configureLabel()
+    }
+
+    func configureLabel() {
+        if let count = cityController?.favoriteCities.count {
+            if count == 0 {
+                if !view.contains(emptyFavoritesLabel) {
+                    view.addSubview(emptyFavoritesLabel)
+                }
+                emptyFavoritesLabel.isHidden = false
+                emptyFavoritesLabel.text = "Looks like you should add some favorites!"
+                emptyFavoritesLabel.textAlignment = .center
+                emptyFavoritesLabel.textColor = .systemGray2
+                emptyFavoritesLabel.translatesAutoresizingMaskIntoConstraints = false
+
+                NSLayoutConstraint.activate([
+                    emptyFavoritesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    emptyFavoritesLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                ])
+            } else {
+                emptyFavoritesLabel.removeFromSuperview()
+            }
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -52,6 +81,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     @objc func deleteFavoriteCity(sender: UIButton) {
         guard let cityController = cityController else { return }
         cityController.removeFavoriteCity(deleting: (cityController.favoriteCities[sender.tag]))
+        updateViews()
     }
 
 }
@@ -70,8 +100,7 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
 extension FavoritesCollectionViewController: CityControllerDelegate {
 
     func favoriteWasChanged() {
-        collectionView.reloadData()
+        updateViews()
     }
 
 }
-
