@@ -32,6 +32,8 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         
     }
     
-    //outlets
+    // MARK: IBOutlets
+
     @IBOutlet var cityStateLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
 }

@@ -14,14 +14,47 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     // MARK: - Properties
 
-    var cityController = CityController()
+    var cityController: CityController?
+    let emptyFavoritesLabel = UILabel()
+
+    // MARK: - IBOutlets
     
     @IBOutlet var cell: UICollectionViewCell!
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
-        cityController.load()
+        cityController?.delegate = self
+        updateViews()
+    }
+
+    func updateViews() {
+        collectionView.reloadData()
+        configureLabel()
+    }
+
+    func configureLabel() {
+        if let count = cityController?.favoriteCities.count {
+            if count == 0 {
+                if !view.contains(emptyFavoritesLabel) {
+                    view.addSubview(emptyFavoritesLabel)
+                }
+                emptyFavoritesLabel.isHidden = false
+                emptyFavoritesLabel.text = "Looks like you should add some favorites!"
+                emptyFavoritesLabel.textAlignment = .center
+                emptyFavoritesLabel.textColor = .systemGray2
+                emptyFavoritesLabel.translatesAutoresizingMaskIntoConstraints = false
+
+                NSLayoutConstraint.activate([
+                    emptyFavoritesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    emptyFavoritesLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                ])
+            } else {
+                emptyFavoritesLabel.removeFromSuperview()
+            }
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -31,19 +64,43 @@ class FavoritesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cityController.favoriteCities.count
+        return cityController?.favoriteCities.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
-        cell.cityStateLabel.text = cityController.favoriteCities[indexPath.row].name
+        cell.cityStateLabel.text = cityController?.favoriteCities[indexPath.row].name
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteFavoriteCity(sender:)), for: .touchUpInside)
+
         return cell
     }
+
+    // MARK: - OBJC Methods
+
+    @objc func deleteFavoriteCity(sender: UIButton) {
+        guard let cityController = cityController else { return }
+        cityController.removeFavoriteCity(deleting: (cityController.favoriteCities[sender.tag]))
+        updateViews()
+    }
+
 }
 
+// MARK: - Protocol extensions
+
 extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width - 3 * 20) / 2
         return CGSize(width: width, height: 1.2 * width)
     }
+
+}
+
+extension FavoritesCollectionViewController: CityControllerDelegate {
+
+    func favoriteWasChanged() {
+        updateViews()
+    }
+
 }

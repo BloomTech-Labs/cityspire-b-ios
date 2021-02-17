@@ -48,20 +48,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzm-To-Nbm">
-                                            <rect key="frame" x="0.0" y="141.5" width="140" height="17.5"/>
-                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzm-To-Nbm">
+                                            <rect key="frame" x="0.0" y="99" width="140" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVH-2e-nQN">
+                                            <rect key="frame" x="108" y="8" width="24" height="26"/>
+                                            <state key="normal" image="trash" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                            <state key="selected" image="trash.fill" catalog="system"/>
+                                            <state key="highlighted" image="trash.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Uzm-To-Nbm" firstAttribute="centerY" secondItem="BDC-JJ-yNC" secondAttribute="centerY" constant="60" id="Ieq-Qk-QYS"/>
+                                        <constraint firstAttribute="trailing" secondItem="mVH-2e-nQN" secondAttribute="trailing" constant="8" id="3Mc-9b-Kxb"/>
+                                        <constraint firstItem="mVH-2e-nQN" firstAttribute="top" secondItem="BDC-JJ-yNC" secondAttribute="top" constant="8" id="AMb-Ax-7gG"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="cityStateLabel" destination="Uzm-To-Nbm" id="dqC-vo-91D"/>
+                                    <outlet property="deleteButton" destination="mVH-2e-nQN" id="tSz-Io-oit"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -74,10 +87,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIH-8O-kha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1800" y="-1979"/>
+            <point key="canvasLocation" x="-1800.0000000000002" y="-1979.4642857142856"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart-outline" width="24" height="24"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>

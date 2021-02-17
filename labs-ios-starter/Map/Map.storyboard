@@ -128,12 +128,9 @@
                             <constraint firstItem="U1D-QW-8lz" firstAttribute="leading" secondItem="sji-W3-6Cf" secondAttribute="leading" constant="20" id="rJ3-TP-bdo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yLX-Tv-G53">
-                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="mHM-15-5oo"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="yLX-Tv-G53"/>
                     <connections>
                         <outlet property="addressTextView" destination="h2i-4g-taA" id="VkG-yi-wYF"/>
-                        <outlet property="favoriteButton" destination="mHM-15-5oo" id="27N-jR-Z4L"/>
                         <outlet property="walkabilityScore" destination="U1D-QW-8lz" id="uNa-K4-Luf"/>
                         <outlet property="zipLabel" destination="OWo-2K-haA" id="sY2-Du-vwa"/>
                     </connections>
@@ -224,7 +221,6 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart-outline" width="24" height="24"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <systemColor name="labelColor">
