@@ -57,9 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         cityController.load()
-        for city in cityController.favoriteCities {
-            print(city.name)
-        }
+        self.tabBarController?.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -74,11 +72,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         addUserTrackingButton()
         addSearchbarTable()
         fetchWalkScore()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        guard let favoritesVC = storyboard?.instantiateViewController(identifier: "FavoritesView") as? FavoritesCollectionViewController else { return }
-        favoritesVC.cityController = cityController
     }
 
     // MARK: - Methods
@@ -198,6 +191,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             favoritesVC.cityController = cityController
         }
     }
+
 }
 
 // MARK: - Extensions
@@ -244,6 +238,18 @@ extension MapViewController: HandleMapSearch {
         
         mapView.setRegion(region, animated: true)
     }
+
 }
 
+extension MapViewController: UITabBarControllerDelegate {
 
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+         let tabBarIndex = tabBarController.selectedIndex
+         if tabBarIndex == 1 {
+            if let navController = viewController as? UINavigationController, let favController = navController.children.first as? FavoritesCollectionViewController {
+                favController.cityController = cityController
+            }
+         }
+    }
+
+}

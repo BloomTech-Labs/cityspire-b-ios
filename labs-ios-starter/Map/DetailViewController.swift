@@ -51,11 +51,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
         updateViews()
-        if let cityController = cityController {
-            for city in cityController.favoriteCities {
-                print(city.name)
-            }
-        }
     }
     
     func updateViews() {

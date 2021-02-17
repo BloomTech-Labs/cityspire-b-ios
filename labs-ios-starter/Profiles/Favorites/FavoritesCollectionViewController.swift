@@ -14,13 +14,25 @@ class FavoritesCollectionViewController: UICollectionViewController {
 
     // MARK: - Properties
 
-    var cityController = CityController()
+    var cityController: CityController?
+    var temp: Int = 0
     
     @IBOutlet var cell: UICollectionViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if let cityController = cityController {
+            for city in cityController.favoriteCities {
+                print(city.name)
+            }
+        } else {
+            print(temp)
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -30,12 +42,12 @@ class FavoritesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cityController.favoriteCities.count
+        return cityController?.favoriteCities.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
-        cell.cityStateLabel.text = cityController.favoriteCities[indexPath.row].name
+        cell.cityStateLabel.text = cityController?.favoriteCities[indexPath.row].name
         return cell
     }
 }
