@@ -19,28 +19,12 @@ class DetailViewController: UIViewController {
     var city: City?
     var zip: String?
     var address: String?
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var walkabilityScore: UILabel!
     @IBOutlet weak var zipLabel: UILabel!
     @IBOutlet weak var addressTextView: UITextView!
-
-    // MARK: - IBActions
-    
-    @objc func favoriteButtonTapped(_ sender: Any) {
-        isFavorite.toggle()
-        if let cityController = cityController,
-           let city = city {
-            if isFavorite {
-                cityController.favoriteToggled(city: city)
-            } else {
-                if cityController.favoriteCities.contains(city) {
-                    cityController.favoriteToggled(city: city)
-                }
-            }
-        }
-    }
     
     // MARK: - Lifecycle
     
@@ -88,8 +72,19 @@ class DetailViewController: UIViewController {
         
         let button0 = EMTNeumorphicButton(type: .custom)
         view.addSubview(button0)
-        button0.setImage(UIImage(named: "heart-outline"), for: .normal)
         button0.setImage(UIImage(named: "heart-solid"), for: .selected)
+        button0.setImage(UIImage(named: "heart-outline"), for: .normal)
+        
+        if let cityController = cityController,
+           let city = city {
+            if cityController.favoriteCities.contains(city) {
+                print("we have a city: \(city)")
+                button0.isSelected = true
+            } else {
+                button0.isSelected = false
+            }
+        }
+        
         button0.contentVerticalAlignment = .fill
         button0.contentHorizontalAlignment = .fill
         button0.imageEdgeInsets = UIEdgeInsets(top: 26, left: 24, bottom: 22, right: 24)
@@ -113,10 +108,8 @@ class DetailViewController: UIViewController {
         if let cityController = cityController,
            let city = city {
             if isFavorite {
-                button.isSelected = true
                 cityController.favoriteToggled(city: city)
             } else {
-                button.isSelected = false
                 if cityController.favoriteCities.contains(city) {
                     cityController.favoriteToggled(city: city)
                 }
