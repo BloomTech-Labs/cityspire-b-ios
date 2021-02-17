@@ -17,14 +17,14 @@ class DetailViewController: UIViewController {
     var walkability: Int?
     var cityController: CityController?
     var city: City?
-    var zip: String?
+    var cityName: String?
     var address: String?
     
     
     // MARK: - IBOutlets
     
     @IBOutlet weak var walkabilityScore: UILabel!
-    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var addressTextView: UITextView!
     
     // MARK: - Lifecycle
@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
     
     func updateViews() {
         updateWalkabilityGrade()
-        updateZip()
+        updateCityName()
         updateAddress()
         configureFaveButton()
     }
@@ -56,9 +56,9 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func updateZip() {
-        if let zip = zip {
-            zipLabel.text = zip
+    func updateCityName() {
+        if let cityName = cityName {
+            cityLabel.text = cityName
         }
     }
     
