@@ -23,9 +23,9 @@ class DetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var walkabilityScore: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var addressTextView: UITextView!
     
     // MARK: - Lifecycle
     
@@ -64,8 +64,7 @@ class DetailViewController: UIViewController {
     
     func updateAddress() {
         if let address = address {
-            addressTextView.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9254901961, blue: 0.9411764706, alpha: 1)
-            addressTextView.text = address
+            addressLabel.text = address
         }
     }
     
