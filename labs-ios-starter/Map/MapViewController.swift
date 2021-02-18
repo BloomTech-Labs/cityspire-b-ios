@@ -151,12 +151,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if let locationTitle = locationTitle {
             
             let city = City(name: locationTitle, walkability: 99)
+            let address = view.annotation?.subtitle ?? ""
+            
             detailVC.city = city
-            detailVC.title = "\(locationTitle) \(zip ?? "")"
             detailVC.walkability = 99
             detailVC.cityController = cityController
-            detailVC.zip = view.annotation?.title ?? ""
-            detailVC.address = view.annotation?.subtitle ?? ""
+            detailVC.cityName = city.name
+            detailVC.address = address
         }
         
         detailVC.modalTransitionStyle = .coverVertical

@@ -81,10 +81,22 @@ class FavoritesCollectionViewController: UICollectionViewController {
               
         // we need to pass data to the detail view here.........
         
+        let city = cityController?.favoriteCities[indexPath.row]
         
         
         guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
         
+        
+            let address = city?.name
+            
+            detailVC.city = city
+            detailVC.walkability = 99
+            detailVC.cityController = cityController
+            detailVC.cityName = city?.name
+            detailVC.address = address
+    
+        
+        detailVC.city = city
         detailVC.modalTransitionStyle = .coverVertical
         detailVC.modalPresentationStyle = .formSheet
         self.present(detailVC, animated: true, completion: nil)
