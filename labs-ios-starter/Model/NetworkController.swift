@@ -16,16 +16,6 @@ enum NetworkError: Int, Error {
     case decodeError
 }
 
-extension CoordinateRegion {
-    
-    fileprivate var queryItems: [URLQueryItem] {
-        let coordinates = "\(origin.longitude),\(origin.latitude),\(origin.longitude + size.width),\(origin.latitude + size.height)"
-        return [
-            URLQueryItem(name: "bbox", value: coordinates)
-        ]
-    }
-}
-
 protocol NetworkPlaceholder {
     func get(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
@@ -45,21 +35,23 @@ class NetworkController {
         self.network = network
     }
     
-    let baseURL = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/starbucks.json")!
+    let baseURL = URL(string: "https://api.walkscore.com/score?")!
     
-    func fetchWalkScore(in region: MKMapRect? = nil, completion: @escaping ([Location]?, Error?) -> Void) {
+    func fetchWalkScore(lat: Double?, lon: Double?, completion: @escaping (Welcome?, Error?) -> Void) {
         
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         
         var queryItems: [URLQueryItem] = []
         
-        if let region = region {
-            let coordinates = CoordinateRegion(mapRect: region)
-            queryItems.append(contentsOf: coordinates.queryItems)
+        if let lat = lat,
+           let lon = lon {
+            queryItems.append(URLQueryItem(name: "format", value: "json"))
+            queryItems.append(URLQueryItem(name: "lat", value: "\(lat)"))
+            queryItems.append(URLQueryItem(name: "lon", value: "\(lon)"))
         }
         
-        queryItems.append(URLQueryItem(name: "access_token", value: "pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg"))
+        queryItems.append(URLQueryItem(name: "wsapikey", value: "f420dfca879f37bc5288cd895a3c1dd7"))
         
         urlComponents?.queryItems = queryItems
         
@@ -90,16 +82,11 @@ class NetworkController {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .millisecondsSince1970
-                let LocationResults = try decoder.decode(ZipResults.self, from: data)
-                print("\(LocationResults.features.count)")
-                
-                for i in LocationResults.features[0...] {
-                    print("\(i.location), \(i.name), \(String(describing: i.latitude)), \(String(describing: i.longitude))")
-                }
+
+                let walkScoreResults = try decoder.decode(Welcome.self, from: data)
                 
                 DispatchQueue.main.async {
-                    completion(LocationResults.features, nil)
+                    completion(walkScoreResults.self, nil)
                 }
                 
             } catch {

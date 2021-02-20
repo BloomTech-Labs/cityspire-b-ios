@@ -26,24 +26,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let cityController = CityController()
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
+    var lat: Double?
+    var lon: Double?
+    var walkScore: Int?
+    var walkScoreDescription: String?
 
     var selectedPin: MKPlacemark? = nil
     var zip: String?
     private var userTrackingButton: MKUserTrackingButton!
 
-    var starbucksLocations: [Location] = [] {
-        didSet {
-
-            let oldLocations = Set(oldValue)
-            let newLocations = Set(starbucksLocations)
-            print("starbucks Locations: \(newLocations.count)")
-            let addedLocations = Array(newLocations.subtracting(oldLocations))
-            let removedLocations = Array(oldLocations.subtracting(newLocations))
-
-            mapView.removeAnnotations(removedLocations)
-            mapView.addAnnotations(addedLocations)
-        }
-    }
 
     private var isCurrentlyFetchingWS = false
     private var shouldRequestWSAgain = false
@@ -107,40 +98,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func fetchWalkScore() {
-        // if we were already requesting walk scores....
-        guard !isCurrentlyFetchingWS else {
-            //then we want to remember to refresh once request comes back
-            shouldRequestWSAgain = true
-            return
-        }
+ 
+        WalkingScoreNetworkController.fetchWalkScore(lat: lat, lon: lon, completion: { (walkScore, error) in
         
-        isCurrentlyFetchingWS = true
-        let visibleRegion = mapView.visibleMapRect
-        
-        WalkingScoreNetworkController.fetchWalkScore(in: visibleRegion) { [self] (locations, error) in
-            self.isCurrentlyFetchingWS = false
-            
-            defer {
-                if self.shouldRequestWSAgain {
-                    self.shouldRequestWSAgain = false
-                    self.fetchWalkScore()
-                }
-            }
-            
             if let error = error {
                 print("Error fetching walk score: \(error)")
             }
-            guard let locations = locations else {
-                self.starbucksLocations = []
-                return
-            }
-            print("count of locations in fetch: \(starbucksLocations.count)")
-            let sortedLocation = locations.sorted(by: { (a, b) -> Bool in
-                a.location > b.location
-            })
             
-            self.starbucksLocations = Array(sortedLocation.prefix(100))
-        }
+            self.walkScore = walkScore?.walkscore
+            self.walkScoreDescription = walkScore?.welcomeDescription
+            
+        })
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -154,7 +122,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let address = view.annotation?.subtitle ?? ""
             
             detailVC.city = city
-            detailVC.walkability = 99
+            detailVC.walkability = walkScore
+            detailVC.walkScoreDescription = walkScoreDescription
             detailVC.cityController = cityController
             detailVC.cityName = city.name
             detailVC.address = address
@@ -169,20 +138,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         fetchWalkScore()
     }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        guard let location = annotation as? Location else { return nil }
-        
-        guard let annotaionView = mapView.dequeueReusableAnnotationView(withIdentifier: .annotationReuseIdentifier, for: location) as? MKMarkerAnnotationView else {
-            preconditionFailure("Missing the registered map annotation view")
-        }
-        
-        annotaionView.image = #imageLiteral(resourceName: "Starbucks-Logo-1992")
-        annotaionView.markerTintColor = .clear
-        annotaionView.glyphTintColor = .clear
-        return annotaionView
-    }
+
 
     // MARK: - Navigation
 
@@ -223,10 +179,15 @@ extension MapViewController: HandleMapSearch {
         // cache the pin
         selectedPin = placemark
         // todo: clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
+        
+        self.lat = placemark.coordinate.latitude
+        self.lon = placemark.coordinate.longitude
+        fetchWalkScore()
         
         if let city = placemark.locality,
            let state = placemark.administrativeArea {

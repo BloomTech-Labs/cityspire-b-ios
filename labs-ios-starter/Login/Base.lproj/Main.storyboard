@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1544.9275362318842" y="83.705357142857139"/>
         </scene>
-        <!--Profiles-->
+        <!--Map-->
         <scene sceneID="3Na-TO-5aB">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profiles" id="aOC-qF-9qB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Map" id="aOC-qF-9qB" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="LNe-Yc-RsA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XU-Dw-F8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

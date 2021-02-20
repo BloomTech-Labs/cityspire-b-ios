@@ -11,6 +11,8 @@ import CoreLocation
 import MapKit
 
 struct CoordinateRegion {
+    
+    
     init(origin: (longitude: Double, latitude: Double), size: (width: Double, height: Double)) {
         self.origin = (longitude: min(max(origin.longitude, -180), 180), latitude: min(max(origin.latitude, -90), 90))
         let farPoint = (longitude: self.origin.longitude + size.width, latitude: self.origin.latitude + size.height)

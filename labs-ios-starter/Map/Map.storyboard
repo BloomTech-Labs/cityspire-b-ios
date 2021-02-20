@@ -93,7 +93,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="HjN-ZF-Wz9">
-                                <rect key="frame" x="40" y="148" width="254" height="700.5"/>
+                                <rect key="frame" x="40" y="148" width="254" height="724.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dxd-Sh-abP">
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="65"/>
@@ -113,7 +113,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bIf-za-cgh">
-                                        <rect key="frame" x="0.0" y="97" width="157.5" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="97" width="157.5" height="104.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walkability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-h1-BiQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="41"/>
@@ -127,10 +127,16 @@
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" systemColor="systemGreenColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-dv-p8Z">
+                                                <rect key="frame" x="0.0" y="86.5" width="78.5" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ms5-vG-JaR">
-                                        <rect key="frame" x="0.0" y="209.5" width="220" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="233.5" width="220" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Livability Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-aO-X6l">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="41"/>
@@ -147,7 +153,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Kip-2G-RLZ">
-                                        <rect key="frame" x="0.0" y="322" width="254" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="346" width="254" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost of Living Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOA-ll-UCH">
                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="41"/>
@@ -164,7 +170,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jTO-zc-3KY">
-                                        <rect key="frame" x="0.0" y="434.5" width="154.5" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="458.5" width="154.5" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGP-mO-BQS">
                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="41"/>
@@ -181,7 +187,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="K8r-X8-oKI">
-                                        <rect key="frame" x="0.0" y="547" width="238" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="571" width="238" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rent Predictions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npo-Bq-Oia">
                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="41"/>
@@ -198,7 +204,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-4y-xAp">
-                                        <rect key="frame" x="0.0" y="659.5" width="177.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="683.5" width="177.5" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jps-e4-5OI">
                                                 <rect key="frame" x="0.0" y="0.0" width="87.5" height="41"/>
@@ -236,6 +242,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="SjH-v9-DkJ" id="hcn-5e-436"/>
                         <outlet property="cityLabel" destination="OWo-2K-haA" id="sY2-Du-vwa"/>
+                        <outlet property="walkDescription" destination="rwh-dv-p8Z" id="qS7-LO-0Ml"/>
                         <outlet property="walkabilityScore" destination="U1D-QW-8lz" id="uNa-K4-Luf"/>
                     </connections>
                 </viewController>
