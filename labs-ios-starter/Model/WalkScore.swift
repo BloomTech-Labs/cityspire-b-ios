@@ -9,41 +9,25 @@
 import Foundation
 import MapKit
 
-struct ZipResults: Decodable {
-    let features: [Location]
-}
-
-class Location: NSObject, Decodable {
-    let name: String
-    let latitude: Double?
-    let longitude: Double?
-    let location: String
+struct Welcome: Codable {
+    let status, walkscore: Int
+    let welcomeDescription, updated: String
+    let logoURL: String
+    let moreInfoIcon: String
+    let moreInfoLink, wsLink, helpLink: String
+    let snappedLat, snappedLon: Double
 
     enum CodingKeys: String, CodingKey {
-        case text
-        case place_name
-        case center
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .text)
-        self.location = try container.decode(String.self, forKey: .place_name)
-        var center = try container.nestedUnkeyedContainer(forKey: .center)
-        self.longitude = try center.decode(Double.self)
-        self.latitude = try center.decode(Double.self)
-        
+        case status, walkscore
+        case welcomeDescription = "description"
+        case updated
+        case logoURL = "logo_url"
+        case moreInfoIcon = "more_info_icon"
+        case moreInfoLink = "more_info_link"
+        case wsLink = "ws_link"
+        case helpLink = "help_link"
+        case snappedLat = "snapped_lat"
+        case snappedLon = "snapped_lon"
     }
 }
 
-extension Location: MKAnnotation {
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-    }
-    var title: String? {
-        String(name)
-    }
-    var subtitle: String? {
-        "Address: \(location)"
-    }
-}
