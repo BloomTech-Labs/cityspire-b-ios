@@ -38,6 +38,7 @@ class NetworkController {
     
     let baseURL = URL(string: "https://api.walkscore.com/score?")!
     
+    // MARK: Fetch Walk Score Method
     func fetchWalkScore(lat: Double?, lon: Double?, completion: @escaping (Welcome?, Error?) -> Void) {
         
         
@@ -98,6 +99,7 @@ class NetworkController {
             }
         }.resume()
     }
+    // MARK: Fetch Zip Codes Method
     
     func fetchZipCodes(lat: String, lon: String, completion: @escaping
         (ZipResults?, Error) -> Void) {
