@@ -31,19 +31,10 @@ struct Welcome: Codable {
     }
 }
 
-struct ZipResults: Decodable {
-    let features: [Text]
+struct ZipResults: Codable {
+    let features: [Feature]
 }
 
-class Text: NSObject, Decodable {
-    let zipCode: String
-    
-    enum CodingKeys: String, CodingKey {
-        case text
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.zipCode = try container.decode(String.self, forKey: .text)
-    }
+struct Feature: Codable {
+    let text: String?
 }

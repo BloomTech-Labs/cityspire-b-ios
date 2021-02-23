@@ -101,11 +101,12 @@ class NetworkController {
     }
     // MARK: Fetch Zip Codes Method
     
-    func fetchZipCodes(lat: String, lon: String, completion: @escaping
+    func fetchZipCodes(lat: Double?, lon: Double?, completion: @escaping
         (ZipResults?, Error) -> Void) {
-        guard let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon),\(lat).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg") else {
-            fatalError()
-        }
+        let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon),\(lat).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg")!
+        
+        print(url)
+
         
         let task = session.dataTask(with: url) { data, response, error in
             guard let response = response as? HTTPURLResponse,
@@ -121,15 +122,11 @@ class NetworkController {
             
             do {
                 let jsonDecoder = JSONDecoder()
-                let zipResults = try jsonDecoder.decode(ZipResults.self, from: data)
-                self.zipCode = zipResults.features[0].zipCode
+                let zipResults = try jsonDecoder.decode([ZipResults].self, from: data)
+                self.zipCode = "\(zipResults)"
+                print(zipResults)
                 
-                DispatchQueue.main.async {
-                    print("\(zipResults.features[0].zipCode)")
-                    completion(zipResults, NetworkError.noDataReturned)
-                }
-            } catch {
-                print("Decoding error: \(error)")
+            } catch (let error) {
                 completion(nil, error)
             }
         }
