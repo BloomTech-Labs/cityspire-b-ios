@@ -31,7 +31,7 @@ struct Welcome: Codable {
     }
 }
 
-struct zipResults: Decodable {
+struct ZipResults: Decodable {
     let features: [Text]
 }
 

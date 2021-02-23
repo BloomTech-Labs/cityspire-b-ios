@@ -12,6 +12,7 @@ import MapKit
 enum NetworkError: Int, Error {
     case invalidURL
     case noDataReturned
+    case badResponse
     case dateMathError
     case decodeError
 }
@@ -96,6 +97,41 @@ class NetworkController {
                 }
             }
         }.resume()
+    }
+    
+    func fetchZipCodes(lat: String, lon: String, completion: @escaping
+        (ZipResults?, Error) -> Void) {
+        guard let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon),\(lat).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg") else {
+            fatalError()
+        }
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                completion(nil, NetworkError.badResponse)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, NetworkError.badResponse)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let zipResults = try jsonDecoder.decode(ZipResults.self, from: data)
+                self.zipCode = zipResults.features[0].zipCode
+                
+                DispatchQueue.main.async {
+                    print("\(zipResults.features[0].zipCode)")
+                    completion(zipResults, NetworkError.noDataReturned)
+                }
+            } catch {
+                print("Decoding error: \(error)")
+                completion(nil, error)
+            }
+        }
+        task.resume()
     }
 }
 
