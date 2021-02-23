@@ -21,13 +21,12 @@ class DetailViewController: UIViewController {
     var address: String?
     var walkScoreDescription: String?
     
-    
     // MARK: - IBOutlets
     
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var walkabilityScore: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var walkDescription: UILabel!
+    @IBOutlet weak var walkabilityDescriptionTextView: UITextView!
     
     // MARK: - Lifecycle
     
@@ -67,13 +66,18 @@ class DetailViewController: UIViewController {
     
     func updateAddress() {
         if let address = address {
-            addressLabel.text = address
+            if address == cityName {
+                addressLabel.text = ""
+            } else {
+                addressLabel.text = address
+            }
         }
     }
     
     func updateDescription() {
+        walkabilityDescriptionTextView.text = "Shafter is a city in Kern County, California, United States. It is located 18 miles (29 km) west-northwest of Bakersfield. The population was 16,988 at the 2010 census, up from 12,736 at the 2000 census. The city is located along State Route 43. Suburbs of Shafter include Myricks Corner, North Shafter, Smith's Corner, and Thomas Lane."
         if let description = walkScoreDescription {
-            walkDescription.text = description
+            walkabilityDescriptionTextView.text = description
         }
     }
     
@@ -87,7 +91,6 @@ class DetailViewController: UIViewController {
         if let cityController = cityController,
            let city = city {
             if cityController.favoriteCities.contains(city) {
-                print("we have a city: \(city)")
                 button0.isSelected = true
             } else {
                 button0.isSelected = false
