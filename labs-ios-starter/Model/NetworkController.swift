@@ -103,7 +103,7 @@ class NetworkController {
     
     func fetchZipCodes(lat: Double?, lon: Double?, completion: @escaping
         (ZipResults?, Error) -> Void) {
-        let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon),\(lat).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg")!
+        let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon ?? 0),\(lat ?? 0).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg")!
         
         print(url)
 
@@ -122,9 +122,12 @@ class NetworkController {
             
             do {
                 let jsonDecoder = JSONDecoder()
-                let zipResults = try jsonDecoder.decode([ZipResults].self, from: data)
-                self.zipCode = "\(zipResults)"
-                print(zipResults)
+                let zipResults = try jsonDecoder.decode(ZipResults.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.zipCode = zipResults.features[0].zipCode
+                    debugPrint("\(zipResults.features[0].zipCode)")
+                }
                 
             } catch (let error) {
                 completion(nil, error)

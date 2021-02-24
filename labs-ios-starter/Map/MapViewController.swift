@@ -111,14 +111,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         })
     }
     
-    func fetchZipCodes() {
-        WalkingScoreNetworkController.fetchZipCodes(lat: lat, lon: lon) { myZip, error in
-            DispatchQueue.main.async {
-                print("\(self.zip)")
-            }
-        }
-    }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailVC") as? DetailViewController else { return }
         
@@ -194,10 +186,16 @@ extension MapViewController: HandleMapSearch {
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
         
-        self.lat = placemark.coordinate.latitude
-        self.lon = placemark.coordinate.longitude
+        let lat = placemark.coordinate.latitude
+        let lon = placemark.coordinate.longitude
+
         fetchWalkScore()
-        fetchZipCodes()
+        self.WalkingScoreNetworkController.fetchZipCodes(lat: lat, lon: lon) { zipResults, error in
+            if let zipResults = zipResults {
+                self.zip = zipResults.features[0].zipCode
+                print(self.zip)
+            }
+        }
         
         if let city = placemark.locality,
            let state = placemark.administrativeArea {
