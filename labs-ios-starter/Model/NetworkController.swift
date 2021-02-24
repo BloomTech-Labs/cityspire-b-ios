@@ -12,6 +12,7 @@ import MapKit
 enum NetworkError: Int, Error {
     case invalidURL
     case noDataReturned
+    case badResponse
     case dateMathError
     case decodeError
 }
@@ -37,6 +38,7 @@ class NetworkController {
     
     let baseURL = URL(string: "https://api.walkscore.com/score?")!
     
+    // MARK: Fetch Walk Score Method
     func fetchWalkScore(lat: Double?, lon: Double?, completion: @escaping (Welcome?, Error?) -> Void) {
         
         
@@ -96,6 +98,42 @@ class NetworkController {
                 }
             }
         }.resume()
+    }
+    // MARK: Fetch Zip Codes Method
+    
+    func fetchZipCodes(lat: Double?, lon: Double?, completion: @escaping
+        (ZipResults?, Error) -> Void) {
+        let url = URL(string: "https://api.mapbox.com/geocoding/v5/mapbox.places/\(lon ?? 0),\(lat ?? 0).json?types=postcode&access_token=pk.eyJ1IjoiYWphbmV1c2hlciIsImEiOiJja2tobzlwYWgwOTNwMndwNzVpNzBienphIn0.fpobc7QzezSeYn67p0jGDg")!
+        
+        print(url)
+
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                completion(nil, NetworkError.badResponse)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, NetworkError.badResponse)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let zipResults = try jsonDecoder.decode(ZipResults.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.zipCode = zipResults.features[0].zipCode
+                    debugPrint("\(zipResults.features[0].zipCode)")
+                }
+                
+            } catch (let error) {
+                completion(nil, error)
+            }
+        }
+        task.resume()
     }
 }
 

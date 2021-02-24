@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     var cityName: String?
     var address: String?
     var walkScoreDescription: String?
+    var zip: String?
     
     // MARK: - IBOutlets
     
